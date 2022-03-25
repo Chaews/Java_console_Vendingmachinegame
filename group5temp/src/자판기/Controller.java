@@ -1,7 +1,6 @@
 package 자판기;
 
 import java.text.DecimalFormat;
-import java.util.Random;
 
 public class Controller extends Thread{
 
@@ -48,12 +47,12 @@ public class Controller extends Thread{
 					System.out.printf ("  │        %3d          %3d           %3d          %3d         │        ┌─────────────────────────────────┐\n",Drink.콜라,Drink.환타,Drink.사이다,Drink.레드불);	
 					System.out.print  ("  │                                                            │ 	│ 				  │\n");
 					System.out.print  ("  │                                                            │ 	│ 				  │\n");
-					System.out.print  ("  │                                                            │        │ 				  │\n");
-					System.out.print  ("  │                                                            │        │ 				  │\n");
-					System.out.print  ("  │                                                            │ 	│ 				  │\n");
-					System.out.print  ("  │                                                            │ 	│ 				  │\n");
-					System.out.print  ("  │                                                            │ 	│ 			          │\n");
-					System.out.print  ("  │                                                            │ 	│ 				  │\n");
+					System.out.print  ("  │                                               (|) (─)      │        │               │\n");
+		            System.out.print  ("  │       ###  ####   ###  ####  #   # ####        #####       │        │               │\n");
+		            System.out.print  ("  │      #   # #   # #   # #   # #   # #   #       #           │    │               │\n");
+		            System.out.print  ("  │      # ### #  #  #   # #  #  #   # ####        ####        │    │               │\n");
+		            System.out.print  ("  │      #   # #   # #   # #   # #   # #               #       │    │                    │\n");
+		            System.out.print  ("  │       #### #   #  ###  #   #  ###  #           ####        │    │               │\n");
 					System.out.print  ("  │     ┌────────────────────────────────────────────────┐     │	└─────────────────────────────────┘\n");
 					System.out.println("  │     │                                                │     │ ");
 					System.out.println("  │     │                                                │     │ ");
@@ -88,12 +87,12 @@ public class Controller extends Thread{
 					System.out.printf ("  │        %3d          %3d           %3d          %3d         │        ┌─────────────────────────────────┐\n",Drink.콜라,Drink.환타,Drink.사이다,Drink.레드불);	
 					System.out.print  ("  │                                                            │ 	│ 				  │\n");
 					System.out.print  ("  │                                                            │ 	│ 				  │\n");
-					System.out.print  ("  │                                                            │        │ 				  │\n");
-					System.out.print  ("  │                                                            │        │ 				  │\n");
-					System.out.print  ("  │                                                            │ 	│ 				  │\n");
-					System.out.print  ("  │                                                            │ 	│ 				  │\n");
-					System.out.print  ("  │                                                            │ 	│ 			          │\n");
-					System.out.print  ("  │                                                            │ 	│ 				  │\n");
+					System.out.print  ("  │                                               (|) (─)      │        │               │\n");
+		            System.out.print  ("  │       ###  ####   ###  ####  #   # ####        #####       │        │               │\n");
+		            System.out.print  ("  │      #   # #   # #   # #   # #   # #   #       #           │    │               │\n");
+		            System.out.print  ("  │      # ### #  #  #   # #  #  #   # ####        ####        │    │               │\n");
+		            System.out.print  ("  │      #   # #   # #   # #   # #   # #               #       │    │                    │\n");
+		            System.out.print  ("  │       #### #   #  ###  #   #  ###  #           ####        │    │               │\n");
 					System.out.print  ("  │     ┌────────────────────────────────────────────────┐     │	└─────────────────────────────────┘\n");
 					System.out.println("  │     │                                                │     │ ");
 					System.out.println("  │     │                                                │     │ ");
@@ -111,17 +110,5 @@ public class Controller extends Thread{
 		}
 	} // 출력메소드 end
 
-	@Override
-	public void run() {
-		super.run();
-		while(true)
-			try {
-				Random random = new Random();
-				Drink.콜라 -= random.nextInt(2)+1;
-				Thread.sleep(1000);
-			}
-			catch (InterruptedException e) {	
-			}
-	}
 }
 	
