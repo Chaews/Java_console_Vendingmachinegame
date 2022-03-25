@@ -10,13 +10,11 @@ public class Controller extends Thread{
 			System.out.println();
 		}
 	}
-	
-	
-	
+
 	public static void 화면출력메소드() {
 		DecimalFormat df = new DecimalFormat("#,##0");
 		while(true) {
-			if(Drink.경고횟수==4) {
+			if(Drink.경고횟수>=4) {
 				break;
 			}
 			for(int i = 0 ; i < 2 ; i++) {
@@ -109,6 +107,70 @@ public class Controller extends Thread{
 			
 		}
 	} // 출력메소드 end
+	public static void 시작화면출력() {
+		for(int i = 0 ; i <= 5 ; i++) {
+			cls();
+			System.out.println("┌────────────────────────────┐");
+			System.out.println("│     자판기에 음료수가 모자라서     │");
+			System.out.println("│     판매하지 못하면 경고입니다     │");
+			System.out.println("│         잘 채워주세요!         │");
+			System.out.println("└────────────────────────────┘");
+			if(i==0) {
+				System.out.println();
+				System.out.println();
+				System.out.println();
+				System.out.println();
+				System.out.println();
+				System.out.println();
+				try {Thread.sleep(1000);}catch(Exception e) {}
+			}
+			else if(i==1) {			
+				System.out.println("          ▒▒▒▒▒▒▒▒▒▒         ");
+				System.out.println("          ▒▒                 ");
+				System.out.println("          ▒▒▒▒▒▒▒▒▒▒         ");
+				System.out.println("                  ▒▒         ");
+				System.out.println("                  ▒▒         ");
+				System.out.println("          ▒▒▒▒▒▒▒▒▒▒         ");
+				try {Thread.sleep(1000);}catch(Exception e) {}
+			}
+			else if(i==2) {
+				System.out.println("          ▒▒     ▒▒          ");
+				System.out.println("          ▒▒     ▒▒          ");
+				System.out.println("          ▒▒     ▒▒          ");
+				System.out.println("          ▒▒▒▒▒▒▒▒▒▒         ");
+				System.out.println("                 ▒▒          ");
+				System.out.println("                 ▒▒          ");
+				try {Thread.sleep(1000);}catch(Exception e) {}
+			}
+			else if(i==3) {
+				System.out.println("          ▒▒▒▒▒▒▒▒▒▒         ");
+				System.out.println("                  ▒▒         ");
+				System.out.println("          ▒▒▒▒▒▒▒▒▒▒         ");
+				System.out.println("                  ▒▒         ");
+				System.out.println("                  ▒▒         ");
+				System.out.println("          ▒▒▒▒▒▒▒▒▒▒         ");
+				try {Thread.sleep(1000);}catch(Exception e) {}
+			}
+			else if(i==4) {
+				System.out.println("          ▒▒▒▒▒▒▒▒▒▒         ");
+				System.out.println("                  ▒▒         ");
+				System.out.println("          ▒▒▒▒▒▒▒▒▒▒         ");
+				System.out.println("          ▒▒                 ");
+				System.out.println("          ▒▒                 ");
+				System.out.println("          ▒▒▒▒▒▒▒▒▒▒         ");
+				try {Thread.sleep(1000);}catch(Exception e) {}
+			}
+			else if(i==5) {
+				System.out.println("            ▒▒▒▒             ");
+				System.out.println("              ▒▒             ");
+				System.out.println("              ▒▒             ");
+				System.out.println("              ▒▒             ");
+				System.out.println("              ▒▒             ");
+				System.out.println("          ▒▒▒▒▒▒▒▒▒▒         ");
+				try {Thread.sleep(1000);}catch(Exception e) {}
+			}
+		}
+	}
 
 }
 	

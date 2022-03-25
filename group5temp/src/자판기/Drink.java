@@ -19,6 +19,8 @@ public class Drink{
 		for(int i = 1 ; i <=5 ; i++) {
 			메시지.add(" ");
 		}
+		Controller.시작화면출력();
+		
 		
 		Btn buttons = new Btn();
 	    buttons.showButton();
