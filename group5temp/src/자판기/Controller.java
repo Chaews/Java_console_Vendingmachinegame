@@ -38,7 +38,7 @@ public class Controller extends Thread{
 					System.out.printf ("  │                                                            │        %-30s              \n",Drink.메시지.get(2));
 		            System.out.printf ("  │        COLA         FANTA        CIDER      RED BULL       │        %-30s              \n",Drink.메시지.get(1));
 		            System.out.printf ("  │     ┌─────────┐  ┌─────────┐  ┌─────────┐  ┌─────────┐     │        %-30s              \n",Drink.메시지.get(0));
-		            System.out.println("  │     │         │  │ ###     │  │    #    │  │####│    │     │        └─────────────────────────────────┘");
+		            System.out.println("  │     │         │  │ ###     │  │    #    │  │####│    │     │        ***********************************");
 		            System.out.println("  │     │COCA COLA│  │  ###    │  │# # # # #│  │####│    │     │ ");
 		            System.out.println("  │     │     ####│  │         │  │  # # #  │  │####│    │     │                      현재 자금  ");
 		            System.out.println("  │     │####*####│  │ F A N   │  │# # # # #│  │    │####│     │                      " + money);
@@ -78,7 +78,7 @@ public class Controller extends Thread{
 					System.out.printf ("  │                                                            │        %-30s              \n",Drink.메시지.get(2));
 		            System.out.printf ("  │        COLA         FANTA        CIDER      RED BULL       │        %-30s              \n",Drink.메시지.get(1));
 		            System.out.printf ("  │     ┌─────────┐  ┌─────────┐  ┌─────────┐  ┌─────────┐     │        %-30s              \n",Drink.메시지.get(0));
-		            System.out.println("  │     │         │  │ ###     │  │    #    │  │####│    │     │        └─────────────────────────────────┘");
+		            System.out.println("  │     │         │  │ ###     │  │    #    │  │####│    │     │        ***********************************");
 		            System.out.println("  │     │COCA COLA│  │  ###    │  │# # # # #│  │####│    │     │ ");
 		            System.out.println("  │     │     ####│  │         │  │  # # #  │  │####│    │     │                      현재 자금  ");
 		            System.out.println("  │     │####*####│  │ F A N   │  │# # # # #│  │    │####│     │                      " + money);
