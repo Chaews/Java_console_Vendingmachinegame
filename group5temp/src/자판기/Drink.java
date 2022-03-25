@@ -16,6 +16,7 @@ public class Drink{
 	
 	
 	public static void main(String[] args) {
+
 		for(int i = 1 ; i <=5 ; i++) {
 			메시지.add(" ");
 		}
@@ -28,10 +29,14 @@ public class Drink{
 		// 현재 시간 저장
 		// static 필드 선언 자금, 음료재고, 속도변수
 		TimeCheck timecheck = new TimeCheck();
+		Music 배경음악 = new Music("배경음악.mp3",true);
 		Buy buy1 = new Buy("콜라");
 		Buy buy2 = new Buy("환타");
 		Buy buy3 = new Buy("사이다");
 		Buy buy4 = new Buy("레드불");
+
+
+		배경음악.start();
 		timecheck.start();
 		buy1.start();
 		buy2.start();
@@ -62,7 +67,3 @@ public class Drink{
 	}
 		
 }
-
-
-
-

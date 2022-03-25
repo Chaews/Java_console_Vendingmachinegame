@@ -12,6 +12,8 @@ public class Buy extends Thread {
 	
 	@Override
 	public synchronized void run() {
+		
+		
 		// 병렬처리 실행
 		try {Thread.sleep(5000);}catch(Exception e) {} // 컴퓨터 구매활동 3초이후 시작
 		while(true) {
@@ -103,6 +105,4 @@ public class Buy extends Thread {
 	}
 
 }
-
-
 

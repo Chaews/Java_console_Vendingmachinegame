@@ -14,7 +14,7 @@ public class Controller extends Thread{
 	public static void 화면출력메소드() {
 		DecimalFormat df = new DecimalFormat("#,##0");
 		while(true) {
-			if(Drink.경고횟수>=4) {
+			if(Drink.경고횟수>=4) { 
 				break;
 			}
 			for(int i = 0 ; i < 2 ; i++) {
