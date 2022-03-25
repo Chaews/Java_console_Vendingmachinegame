@@ -11,11 +11,11 @@ public class Buy extends Thread {
 	}
 	
 	@Override
-	public void run() {
+	public synchronized void run() {
 		// 병렬처리 실행
 		try {Thread.sleep(5000);}catch(Exception e) {} // 컴퓨터 구매활동 3초이후 시작
 		while(true) {
-			if(Drink.경고횟수==4) {
+			if(Drink.경고횟수>=4) {
 				break;
 			}
 			if(음료이름=="콜라") {

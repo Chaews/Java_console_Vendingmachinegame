@@ -3,7 +3,7 @@ package 자판기;
 public class TimeCheck extends Thread {
 	
 	@Override
-	public void run() {
+	public synchronized void run() {
 		
 		while(true) {
 			long 현재시간 = System.currentTimeMillis();

@@ -1,5 +1,6 @@
 package 자판기;
 
+import java.text.DecimalFormat;
 import java.util.Random;
 
 public class Controller extends Thread{
@@ -14,6 +15,7 @@ public class Controller extends Thread{
 	
 	
 	public static void 화면출력메소드() {
+		DecimalFormat df = new DecimalFormat("#,##0");
 		while(true) {
 			if(Drink.경고횟수==4) {
 				break;
@@ -21,25 +23,25 @@ public class Controller extends Thread{
 			for(int i = 0 ; i < 2 ; i++) {
 				if(i == 0) {
 					cls();
-					System.out.println("현재 자금 : " + Drink.자금);
+					String money = df.format(Drink.자금);
 					System.out.println("  ┌────────────────────────────────────────────────────────────┐ ");
 					System.out.println("  │                                                            │ ");
 					System.out.println("  │     □□□□□□□□□□   □       □□□□□□□□   □     □□□□□□□□   □     │ ");
 					System.out.println("  │         □□       □         □  □     □□□          □   □     │ ");
 					System.out.println("  │         □□       □         □  □     □           □    □     │ ");
 					System.out.println("  │        □  □      □□□     □□□□□□□□   □          □     □     │ ");
-					System.out.println("  │       □    □     □                            □      □     │        ┌─────────────────────────────────┐ ");
-					System.out.printf ("  │      □      □    □         □                 □       □     │                       알림판               │ \n");
-					System.out.printf ("  │     □        □   □         □                □        □     │        %-30s              \n","Level : " + Drink.시간차이);
+					System.out.println("  │       □    □     □                            □      □     │        ***********************************");
+					System.out.printf ("  │      □      □    □         □                 □       □     │                       알림판                 \n");
+					System.out.printf ("  │     □        □   □         □                □        □     │        %-15s 경고 횟수:%s              \n","Level : " + Drink.시간차이,Drink.경고횟수);
 					System.out.printf ("  │                  □         □□□□□□□□□□□     □         □     │        %-30s              \n",Drink.메시지.get(4));
 					System.out.printf ("  │                                                            │        %-30s              \n",Drink.메시지.get(3));
 					System.out.printf ("  │                                                            │        %-30s              \n",Drink.메시지.get(2));
 					System.out.printf ("  │                                                            │        %-30s              \n",Drink.메시지.get(1));
 					System.out.printf ("  │     ┌─────────┐  ┌─────────┐  ┌─────────┐  ┌─────────┐     │        %-30s              \n",Drink.메시지.get(0));
-					System.out.println("  │     │         │  │         │  │         │  │         │     │        └─────────────────────────────────┘");
+					System.out.println("  │     │         │  │         │  │         │  │         │     │        ***********************************");
 					System.out.println("  │     │         │  │         │  │         │  │         │     │ ");
-					System.out.println("  │     │         │  │         │  │         │  │         │     │ ");
-					System.out.println("  │     │         │  │         │  │         │  │         │     │ ");
+					System.out.println("  │     │         │  │         │  │         │  │         │     │                      현재 자금  ");
+					System.out.println("  │     │         │  │         │  │         │  │         │     │                      " + money);
 					System.out.println("  │     │         │  │         │  │         │  │         │     │ ");
 					System.out.println("  │     │         │  │         │  │         │  │         │     │ ");
 					System.out.println("  │     └─────────┘  └─────────┘  └─────────┘  └─────────┘     │                      버튼위치");
@@ -61,25 +63,25 @@ public class Controller extends Thread{
 				}
 				else {
 					cls();
-					System.out.println("현재 자금 : " + Drink.자금);
+					String money = df.format(Drink.자금);
 					System.out.println("  ┌────────────────────────────────────────────────────────────┐ ");
 					System.out.println("  │                                                            │ ");
 					System.out.println("  │     ■■■■■■■■■■   ■       ■■■■■■■■   ■     ■■■■■■■■   ■     │ ");
 					System.out.println("  │         ■■       ■         ■  ■     ■■■          ■   ■     │ ");
 					System.out.println("  │         ■■       ■         ■  ■     ■           ■    ■     │ ");
 					System.out.println("  │        ■  ■      ■■■     ■■■■■■■■   ■          ■     ■     │ ");
-					System.out.println("  │       ■    ■     ■                            ■      ■     │        ┌─────────────────────────────────┐ ");
-					System.out.printf ("  │      ■      ■    ■         ■                 ■       ■     │                       알림판               │ \n");
-					System.out.printf ("  │     ■        ■   ■         ■                ■        ■     │        %-30s              \n","Level : " + Drink.시간차이);
+					System.out.println("  │       ■    ■     ■                            ■      ■     │        ***********************************");
+					System.out.printf ("  │      ■      ■    ■         ■                 ■       ■     │                       알림판                 \n");
+					System.out.printf ("  │     ■        ■   ■         ■                ■        ■     │        %-15s 경고 횟수:%s              \n","Level : " + Drink.시간차이,Drink.경고횟수);
 					System.out.printf ("  │                  ■         ■■■■■■■■■■■     ■         ■     │        %-30s              \n",Drink.메시지.get(4));
 					System.out.printf ("  │                                                            │        %-30s              \n",Drink.메시지.get(3));
 					System.out.printf ("  │                                                            │        %-30s              \n",Drink.메시지.get(2));
 					System.out.printf ("  │                                                            │        %-30s              \n",Drink.메시지.get(1));
 					System.out.printf ("  │     ┌─────────┐  ┌─────────┐  ┌─────────┐  ┌─────────┐     │        %-30s              \n",Drink.메시지.get(0));
-					System.out.println("  │     │         │  │         │  │         │  │         │     │        └─────────────────────────────────┘");
+					System.out.println("  │     │         │  │         │  │         │  │         │     │        ***********************************");
 					System.out.println("  │     │         │  │         │  │         │  │         │     │ ");
-					System.out.println("  │     │         │  │         │  │         │  │         │     │ ");
-					System.out.println("  │     │         │  │         │  │         │  │         │     │ ");
+					System.out.println("  │     │         │  │         │  │         │  │         │     │                      현재 자금  ");
+					System.out.println("  │     │         │  │         │  │         │  │         │     │                      " + money);
 					System.out.println("  │     │         │  │         │  │         │  │         │     │ ");
 					System.out.println("  │     │         │  │         │  │         │  │         │     │ ");
 					System.out.println("  │     └─────────┘  └─────────┘  └─────────┘  └─────────┘     │                      버튼위치");
