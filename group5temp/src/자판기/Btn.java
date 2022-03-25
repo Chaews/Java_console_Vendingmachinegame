@@ -60,7 +60,7 @@ public class Btn {
    }
  
    void showButton() {
- 
+	  Music 구매 = new Music("구매.mp3",true);
       Button btn1 = new Button("콜라[300]");
       Button btn2 = new Button("환타[200]");
       Button btn3 = new Button("사이다[100]");
@@ -80,6 +80,7 @@ public class Btn {
             else {
 	            Drink.콜라++;
 	            Drink.자금 -= 300 ;
+	            
             }
          }
       });
@@ -93,6 +94,7 @@ public class Btn {
             else{
             	Drink.환타++;
             	Drink.자금 -= 200;
+            	
             }
          }
       });
@@ -106,6 +108,7 @@ public class Btn {
             else{
             	Drink.사이다++;
             	Drink.자금 -= 100;
+            	
             }
          }
       });
@@ -119,6 +122,7 @@ public class Btn {
             else{
             	Drink.레드불++;
             	Drink.자금 -= 1000;
+            	
             }
          }
       });
