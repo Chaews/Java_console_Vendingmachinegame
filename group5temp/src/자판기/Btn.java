@@ -32,6 +32,7 @@ public class Btn {
       mainFrame = new Frame("음료 추가");
       mainFrame.setSize(400, 200);
       mainFrame.setLayout(new GridLayout(3, 1));
+      mainFrame.setLocation(820, 690);
       mainFrame.addWindowListener(new WindowAdapter() {
          public void windowClosing(WindowEvent windowEvent) {
             System.exit(0);
