@@ -16,6 +16,9 @@ public class Drink{
 	
 	
 	public static void main(String[] args) {
+		for(int i = 1 ; i <=5 ; i++) {
+			¸Þ½ÃÁö.add(" ");
+		}
 		
 		Btn buttons = new Btn();
 	    buttons.showButton();

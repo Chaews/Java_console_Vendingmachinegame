@@ -85,12 +85,12 @@ public class Btn {
  
       btn2.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e) {
-            statusLabel.setText("사이다가 선택되었습니다.");
+            statusLabel.setText("환타가 선택되었습니다.");
             if(Drink.자금<200) {
             	statusLabel.setText("자금이 부족하여 구매할 수 없습니다.");
             }
             else{
-            	Drink.사이다++;
+            	Drink.환타++;
             	Drink.자금 -= 200;
             }
          }
@@ -98,12 +98,12 @@ public class Btn {
  
       btn3.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e) {
-            statusLabel.setText("환타가 선택되었습니다.");
+            statusLabel.setText("사이다가 선택되었습니다.");
             if(Drink.자금<100) {
             	statusLabel.setText("자금이 부족하여 구매할 수 없습니다.");
             }
             else{
-            	Drink.환타++;
+            	Drink.사이다++;
             	Drink.자금 -= 100;
             }
          }
