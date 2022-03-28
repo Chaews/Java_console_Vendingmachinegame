@@ -194,8 +194,23 @@ public class Controller extends Thread{
 			System.out.println("*****************************");
 	 }
 	 
-	 public static void 랭크판정() {
-		 
+	 public static boolean 랭크판정(long 게임시간) {
+		 for(int i = 0 ; i < 5 ; i++) {
+			 if(Drink.랭킹.get(i).getPlaytime() < 게임시간) {
+				 return true;
+			 }
+		 }
+		 return false;
+	 }
+	 
+	 public static void 랭크등록(long 게임시간, String 이름, String 코멘트) {
+		 for(int i = 0 ; i < 5 ; i++) {
+			 if(Drink.랭킹.get(i).getPlaytime() < 게임시간) {
+				 Rank rank = new Rank(i+1, 이름, 게임시간, 코멘트);
+				 Drink.랭킹.add(i,rank);
+				 break;
+			 }
+		 }	 	 
 	 }
 	 
 	 public static void 랭크출력() {

@@ -71,7 +71,23 @@ public class Drink{
 		long 종료시간 = System.currentTimeMillis();
 		long 게임시간 = (종료시간-시작시간)/1000;
 		
-		Controller.랭크판정();
+		
+		System.out.println();
+		System.out.println();
+		System.out.println();
+		
+		
+		boolean result = Controller.랭크판정(게임시간);
+		if(result) {
+			System.out.println(" *상위 랭커 입니다* ");
+			System.out.print("이름을 입력해주세요"); String 이름 = scanner.next();
+			System.out.print("코멘트를 입력해주세요"); String 코멘트 = scanner.next();
+			Controller.랭크등록(게임시간,이름,코멘트);
+		}
+		
+		Controller.랭크출력();
+		
+		
 	
 	
 	}
