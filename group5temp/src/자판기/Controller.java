@@ -243,17 +243,22 @@ public class Controller extends Thread{
 			fileInputStream.read(bytes);
 			String 파일내용 = new String(bytes); // 바이트열 -> 문자열
 			String[] file = 파일내용.split("\n");	
-			int i = 0 ;
-			for(String temp : file) {
-				String[] 필드목록 = temp.split(",");
-				Rank rank = new Rank(Integer.parseInt(필드목록[0]), 필드목록[1], (long)(Integer.parseInt(필드목록[2])),필드목록[3]);
-				// 리스트 저장
-				Drink.랭킹.remove(i);
-				Drink.랭킹.add(i,rank);
-				i++;
+			int j = 0 ;
+			for(Rank temp : Drink.랭킹) {
+				if(j == Drink.랭킹.size()){
+					break;
+				}
+				int i = 0 ;
+				for(String temp2 : file) {
+					String[] 필드목록 = temp2.split(",");
+					Rank rank = new Rank(Integer.parseInt(필드목록[0]), 필드목록[1], Long.parseLong(필드목록[2]),필드목록[3]);
+					// 리스트 저장
+					Drink.랭킹.remove(i);
+					Drink.랭킹.add(i,rank);
+					i++;
+				}
+				j++;
 			}
-			
-		
 		}
 		catch(Exception e){ // catch : 예외 잡기 -> Exception 클래스의 객체에 저장
 		}
