@@ -19,7 +19,7 @@ public class Music extends Thread{
 		// 곡의 제목과 무한반복인지의 유무
 		try {// 예외처리
 			this.isLoop = isLoop; //isLoop 변수초기화
-			file = new File(test.class.getResource("../music/" + name).toURI());
+			file = new File(Drink.class.getResource("../music/" + name).toURI());
 			fis = new FileInputStream(file);
 			bis = new BufferedInputStream(fis);
 			player = new Player(bis);
