@@ -60,7 +60,6 @@ public class Btn {
    }
  
    void showButton() {
-	  Music 구매 = new Music("구매.mp3",true);
       Button btn1 = new Button("콜라[300]");
       Button btn2 = new Button("환타[200]");
       Button btn3 = new Button("사이다[100]");

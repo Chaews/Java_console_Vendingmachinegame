@@ -5,22 +5,22 @@ import java.text.DecimalFormat;
 public class Controller extends Thread{
 
 	
-	public static void cls() {
-		for(int i = 1 ; i <= 60; i++) {
+	public static void cls() { // 반복문으로 빈공간 밀어내서 움직이는것처럼 표현하기 위한 반복문 출력메소드
+		for(int i = 1 ; i <= 60; i++) { // 60줄 출력 반복문
 			System.out.println();
 		}
 	}
 
-	public static void 화면출력메소드() {
-		DecimalFormat df = new DecimalFormat("#,##0");
-		while(true) {
-			if(Drink.경고횟수>=4) { 
+	public static void 화면출력메소드() { // 화면 출력 메소드
+		DecimalFormat df = new DecimalFormat("#,##0"); // 자금 출력형식 설정
+		while(true) { // 무한루프 [종료 조건 : 경고횟수 4회이상]
+			if(Drink.경고횟수>=4) {  // 경고횟수 4회 이상시 메인 스레드 종료
 				break;
 			}
-			for(int i = 0 ; i < 2 ; i++) {
+			for(int i = 0 ; i < 2 ; i++) { // 자판기 글자에 반짝이는 효과 주기위해 2개의 화면으로 프레임 생성
 				if(i == 0) {
-					cls();
-					String money = df.format(Drink.자금);
+					cls(); // 화면 밀어내기 메소드
+					String money = df.format(Drink.자금); // 자금의 출력형식 설정하여 문자열로 저장
 					System.out.println("  ┌────────────────────────────────────────────────────────────┐ ");
 					System.out.println("  │                                                            │ ");
 					System.out.println("  │     □□□□□□□□□□   □       □□□□□□□□   □     □□□□□□□□   □     │ ");
@@ -30,11 +30,11 @@ public class Controller extends Thread{
 					System.out.println("  │       □    □     □                            □      □     │        ***********************************");
 					System.out.printf ("  │      □      □    □         □                 □       □     │                       알림판                 \n");
 					System.out.printf ("  │     □        □   □         □                □        □     │        %-15s 경고 횟수:%s              \n","Level : " + Drink.시간차이,Drink.경고횟수);
-					System.out.printf ("  │                  □         □□□□□□□□□□□     □         □     │        %-30s              \n",Drink.메시지.get(4));
-					System.out.printf ("  │                                                            │        %-30s              \n",Drink.메시지.get(3));
-					System.out.printf ("  │                                                            │        %-30s              \n",Drink.메시지.get(2));
-		            System.out.printf ("  │        COLA         FANTA        CIDER      RED BULL       │        %-30s              \n",Drink.메시지.get(1));
-		            System.out.printf ("  │     ┌─────────┐  ┌─────────┐  ┌─────────┐  ┌─────────┐     │        %-30s              \n",Drink.메시지.get(0));
+					System.out.printf ("  │                  □         □□□□□□□□□□□     □         □     │        %-30s              \n",Drink.메시지.get(4)); // 문자열 인덱스에 저장된 문자 출력
+					System.out.printf ("  │                                                            │        %-30s              \n",Drink.메시지.get(3)); // 문자열 인덱스에 저장된 문자 출력
+					System.out.printf ("  │                                                            │        %-30s              \n",Drink.메시지.get(2)); // 문자열 인덱스에 저장된 문자 출력
+		            System.out.printf ("  │        COLA         FANTA        CIDER      RED BULL       │        %-30s              \n",Drink.메시지.get(1)); // 문자열 인덱스에 저장된 문자 출력
+		            System.out.printf ("  │     ┌─────────┐  ┌─────────┐  ┌─────────┐  ┌─────────┐     │        %-30s              \n",Drink.메시지.get(0)); // 문자열 인덱스에 저장된 문자 출력
 		            System.out.println("  │     │         │  │ ###     │  │    #    │  │####│    │     │        ***********************************");
 		            System.out.println("  │     │COCA COLA│  │  ###    │  │# # # # #│  │####│    │     │ ");
 		            System.out.println("  │     │     ####│  │         │  │  # # #  │  │####│    │     │                      현재 자금  ");
