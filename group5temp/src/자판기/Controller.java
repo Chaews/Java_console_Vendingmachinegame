@@ -171,6 +171,27 @@ public class Controller extends Thread{
 			}
 		}
 	}
+	 public static void gameover() {
+	      System.out.println();      
+	      System.out.println("   ##########       ######      ####    ####   ############");
+	      System.out.println("  ############     ########     #####  #####   ############");
+	      System.out.println("  ####    ####   ####    ####   ############   ####");
+	      System.out.println("  ###            ####    ####   ##  ####  ##   ############");
+	      System.out.println("  ###    #####   ############   ##  ####  ##   ############");
+	      System.out.println("  ####      ##   ############   ##  ####  ##   ####");
+	      System.out.println("  ############   ####    ####   ##  ####  ##   ############");
+	      System.out.println("   ##########    ####    ####   ##  ####  ##   ############");
+	      System.out.println();
+	      System.out.println("     ######      ####    ####   ############   ##########");
+	      System.out.println("   ####  ####    ####    ####   ############   ####  #####");
+	      System.out.println("  ####    ####   ####    ####   ####           ###    #####");
+	      System.out.println("  ###      ###   ####    ####   ############   ####  #####");
+	      System.out.println("  ###      ###   ####    ####   ############   ##########");
+	      System.out.println("  ####    ####    ####  ####    ####           ###    ###");
+	      System.out.println("   ####  ####      ########     ############   ###     ###");
+	      System.out.println("     ######          ####       ############   ###      ###");
+	   }
+
 
 }
 	

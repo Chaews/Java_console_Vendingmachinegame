@@ -44,20 +44,9 @@ public class Drink{
 		buy4.start(); // 컴퓨터 레드불 구매 스레드 시작 (thread 6)
 		Controller.화면출력메소드(); // 화면출력메소드 while 무한루프 (main thread)
 
+		Controller.gameover();
 		
 		
-		System.out.println("Game Over");
-		System.out.println("Game Over");
-		System.out.println("Game Over");
-		System.out.println("Game Over");
-		System.out.println("Game Over");
-		System.out.println("Game Over");
-		System.out.println("Game Over");
-		System.out.println("Game Over");
-		System.out.println("Game Over");
-		System.out.println("Game Over");
-		System.out.println("Game Over");
-		System.out.println("Game Over");
 
 	}
 		
