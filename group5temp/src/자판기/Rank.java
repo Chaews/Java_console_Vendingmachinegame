@@ -2,7 +2,6 @@ package ÀÚÆÇ±â;
 
 public class Rank {
 	
-	private int rank ;
 	private String name ;
 	private long playtime ;
 	private String content ; 
@@ -10,20 +9,11 @@ public class Rank {
 	public Rank() {
 	}
 
-	public Rank(int rank, String name, long playtime, String content) {
+	public Rank(String name, long playtime, String content) {
 		super();
-		this.rank = rank;
 		this.name = name;
 		this.playtime = playtime;
 		this.content = content;
-	}
-
-	public int getRank() {
-		return rank;
-	}
-
-	public void setRank(int rank) {
-		this.rank = rank;
 	}
 
 	public String getName() {

@@ -3,238 +3,59 @@ package 자판기;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 
 public class Controller extends Thread{
-
 	
-	public static void cls() { // 반복문으로 빈공간 밀어내서 움직이는것처럼 표현하기 위한 반복문 출력메소드
-		for(int i = 1 ; i <= 60; i++) { // 60줄 출력 반복문
-			System.out.println();
+	// 모든 스레드에서 사용하기 위해 변수를 static으로 선언
+	static int 자금 = 10000 ;
+	static int 콜라 = 0 ;
+	static int 사이다 = 0 ;
+	static int 환타 = 0 ;
+	static int 레드불 = 0 ;
+	static long 시작시간 ; // 게임시작시 시작시간을 저장
+	static int 시간차이 = 1 ; // 시간차이체크 메소드를 이용하여 게임 경과시간을 수치로 나타냄 (5초당 1씩증가)
+	static int 경고횟수 = 0 ; // 게임종료조건을 만들기 위함
+	static ArrayList<String> 메시지 = new ArrayList<>(); // 반복출력으로 인해 메시지 사라짐을 방지하기위해 리스트화 하여 리스트자리를 지정해놓고 출력
+	static ArrayList<Rank> 랭킹 = new ArrayList<>(); // 랭킹저장 리스트
+	
+	public static void 메시지랭킹리셋메소드() {
+		for(int i = 1 ; i <= 5 ; i++) { // 이작업을 수행하지 않을경우 게임시작시 0,1,2,3,4 인덱스에 null상태라 .get 접근연산자 사용불가
+			메시지.add(0," "); 
+			Rank rank = new Rank(" ", 0, " ");
+			랭킹.add(rank); // 
 		}
 	}
-
-	public static void 화면출력메소드() { // 화면 출력 메소드
-		DecimalFormat df = new DecimalFormat("#,##0"); // 자금 출력형식 설정
-		while(true) { // 무한루프 [종료 조건 : 경고횟수 4회이상]
-			if(Drink.경고횟수>=4) {  // 경고횟수 4회 이상시 메인 스레드 종료
-				break;
-			}
-			for(int i = 0 ; i < 2 ; i++) { // 자판기 글자에 반짝이는 효과 주기위해 2개의 화면으로 프레임 생성
-				if(i == 0) {
-					cls(); // 화면 밀어내기 메소드
-					String money = df.format(Drink.자금); // 자금의 출력형식 설정하여 문자열로 저장
-					System.out.println("  ┌────────────────────────────────────────────────────────────┐ ");
-					System.out.println("  │                                                            │ ");
-					System.out.println("  │     □□□□□□□□□□   □       □□□□□□□□   □     □□□□□□□□   □     │ ");
-					System.out.println("  │         □□       □         □  □     □□□          □   □     │ ");
-					System.out.println("  │         □□       □         □  □     □           □    □     │ ");
-					System.out.println("  │        □  □      □□□     □□□□□□□□   □          □     □     │ ");
-					System.out.println("  │       □    □     □                            □      □     │        ***********************************");
-					System.out.printf ("  │      □      □    □         □                 □       □     │                       알림판                 \n");
-					System.out.printf ("  │     □        □   □         □                □        □     │        %-15s 경고 횟수:%s              \n","Level : " + Drink.시간차이,Drink.경고횟수);
-					System.out.printf ("  │                  □         □□□□□□□□□□□     □         □     │        %-30s              \n",Drink.메시지.get(4)); // 문자열 인덱스에 저장된 문자 출력
-					System.out.printf ("  │                                                            │        %-30s              \n",Drink.메시지.get(3)); // 문자열 인덱스에 저장된 문자 출력
-					System.out.printf ("  │                                                            │        %-30s              \n",Drink.메시지.get(2)); // 문자열 인덱스에 저장된 문자 출력
-		            System.out.printf ("  │        COLA         FANTA        CIDER      RED BULL       │        %-30s              \n",Drink.메시지.get(1)); // 문자열 인덱스에 저장된 문자 출력
-		            System.out.printf ("  │     ┌─────────┐  ┌─────────┐  ┌─────────┐  ┌─────────┐     │        %-30s              \n",Drink.메시지.get(0)); // 문자열 인덱스에 저장된 문자 출력
-		            System.out.println("  │     │         │  │ ###     │  │    #    │  │####│    │     │        ***********************************");
-		            System.out.println("  │     │COCA COLA│  │  ###    │  │# # # # #│  │####│    │     │ ");
-		            System.out.println("  │     │     ####│  │         │  │  # # #  │  │####│    │     │                      현재 자금  ");
-		            System.out.println("  │     │####*####│  │ F A N   │  │# # # # #│  │    │####│     │                      " + money);
-		            System.out.println("  │     │####*    │  │     T A │  │    #    │  │    │####│     │ ");
-		            System.out.println("  │     │         │  │         │  │  CIDER  │  │    │####│     │ ");
-					System.out.println("  │     └─────────┘  └─────────┘  └─────────┘  └─────────┘     │                      버튼위치");
-					System.out.printf ("  │        %3d          %3d           %3d          %3d         │        ┌─────────────────────────────────┐\n",Drink.콜라,Drink.환타,Drink.사이다,Drink.레드불);	
-					System.out.print  ("  │                                                            │        │                                 │\n");
-					System.out.print  ("  │                                                            │        │                                 │\n");
-					System.out.print  ("  │                                               (|) (─)      │        │                                 │\n");
-		            System.out.print  ("  │       ###  ####   ###  #   # ####              #####       │        │                                 │\n");
-		            System.out.print  ("  │      #   # #   # #   # #   # #   #             #           │        │                                 │\n");
-		            System.out.print  ("  │      # ### ####  #   # #   # ####              ####        │        │                                 │\n");
-		            System.out.print  ("  │      #   # #   # #   # #   # #                     #       │        │                                 │\n");
-		            System.out.print  ("  │       #### #   #  ###   ###  #                 ####        │        │                                 │\n");
-					System.out.print  ("  │     ┌────────────────────────────────────────────────┐     │        └─────────────────────────────────┘\n");
-					System.out.println("  │     │                                                │     │ ");
-					System.out.println("  │     │                                                │     │ ");
-					System.out.println("  │     │                                                │     │ ");
-					System.out.println("  │     └────────────────────────────────────────────────┘     │ ");
-					System.out.println("  └────────────────────────────────────────────────────────────┘ ");
-				}
-				else {
-					cls();
-					String money = df.format(Drink.자금);
-					System.out.println("  ┌────────────────────────────────────────────────────────────┐ ");
-					System.out.println("  │                                                            │ ");
-					System.out.println("  │     ■■■■■■■■■■   ■       ■■■■■■■■   ■     ■■■■■■■■   ■     │ ");
-					System.out.println("  │         ■■       ■         ■  ■     ■■■          ■   ■     │ ");
-					System.out.println("  │         ■■       ■         ■  ■     ■           ■    ■     │ ");
-					System.out.println("  │        ■  ■      ■■■     ■■■■■■■■   ■          ■     ■     │ ");
-					System.out.println("  │       ■    ■     ■                            ■      ■     │        ***********************************");
-					System.out.printf ("  │      ■      ■    ■         ■                 ■       ■     │                       알림판                 \n");
-					System.out.printf ("  │     ■        ■   ■         ■                ■        ■     │        %-15s 경고 횟수:%s              \n","Level : " + Drink.시간차이,Drink.경고횟수);
-					System.out.printf ("  │                  ■         ■■■■■■■■■■■     ■         ■     │        %-30s              \n",Drink.메시지.get(4));
-					System.out.printf ("  │                                                            │        %-30s              \n",Drink.메시지.get(3));
-					System.out.printf ("  │                                                            │        %-30s              \n",Drink.메시지.get(2));
-		            System.out.printf ("  │        COLA         FANTA        CIDER      RED BULL       │        %-30s              \n",Drink.메시지.get(1));
-		            System.out.printf ("  │     ┌─────────┐  ┌─────────┐  ┌─────────┐  ┌─────────┐     │        %-30s              \n",Drink.메시지.get(0));
-		            System.out.println("  │     │         │  │ ###     │  │    #    │  │####│    │     │        ***********************************");
-		            System.out.println("  │     │COCA COLA│  │  ###    │  │# # # # #│  │####│    │     │ ");
-		            System.out.println("  │     │     ####│  │         │  │  # # #  │  │####│    │     │                      현재 자금  ");
-		            System.out.println("  │     │####*####│  │ F A N   │  │# # # # #│  │    │####│     │                      " + money);
-		            System.out.println("  │     │####*    │  │     T A │  │    #    │  │    │####│     │ ");
-		            System.out.println("  │     │         │  │         │  │  CIDER  │  │    │####│     │ ");
-					System.out.println("  │     └─────────┘  └─────────┘  └─────────┘  └─────────┘     │                      버튼위치");
-					System.out.printf ("  │        %3d          %3d           %3d          %3d         │        ┌─────────────────────────────────┐\n",Drink.콜라,Drink.환타,Drink.사이다,Drink.레드불);	
-					System.out.print  ("  │                                                            │        │                                 │\n");
-					System.out.print  ("  │                                                            │        │                                 │\n");
-					System.out.print  ("  │                                               (|) (─)      │        │                                 │\n");
-		            System.out.print  ("  │       ###  ####   ###  #   # ####              #####       │        │                                 │\n");
-		            System.out.print  ("  │      #   # #   # #   # #   # #   #             #           │        │                                 │\n");
-		            System.out.print  ("  │      # ### ####  #   # #   # ####              ####        │        │                                 │\n");
-		            System.out.print  ("  │      #   # #   # #   # #   # #                     #       │        │                                 │\n");
-		            System.out.print  ("  │       #### #   #  ###   ###  #                 ####        │        │                                 │\n");
-					System.out.print  ("  │     ┌────────────────────────────────────────────────┐     │        └─────────────────────────────────┘\n");
-					System.out.println("  │     │                                                │     │ ");
-					System.out.println("  │     │                                                │     │ ");
-					System.out.println("  │     │                                                │     │ ");
-					System.out.println("  │     └────────────────────────────────────────────────┘     │ ");
-					System.out.println("  └────────────────────────────────────────────────────────────┘ ");
-				}
-				try {
-					Thread.sleep(160);
-				}
-				catch (Exception e) {}
-
-			}
-			
-		}
-	} // 출력메소드 end
-	public static void 시작카운트() {
-		for(int i = 0 ; i <= 5 ; i++) {
-			cls();
-			if(i==0) {
-				System.out.println();
-				System.out.println();
-				System.out.println();
-				System.out.println();
-				System.out.println();
-				System.out.println();
-				try {Thread.sleep(1000);}catch(Exception e) {}
-			}
-			else if(i==1) {			
-				System.out.println("          ▒▒▒▒▒▒▒▒▒▒         ");
-				System.out.println("          ▒▒                 ");
-				System.out.println("          ▒▒▒▒▒▒▒▒▒▒         ");
-				System.out.println("                  ▒▒         ");
-				System.out.println("                  ▒▒         ");
-				System.out.println("          ▒▒▒▒▒▒▒▒▒▒         ");
-				try {Thread.sleep(1000);}catch(Exception e) {}
-			}
-			else if(i==2) {
-				System.out.println("          ▒▒     ▒▒          ");
-				System.out.println("          ▒▒     ▒▒          ");
-				System.out.println("          ▒▒     ▒▒          ");
-				System.out.println("          ▒▒▒▒▒▒▒▒▒▒         ");
-				System.out.println("                 ▒▒          ");
-				System.out.println("                 ▒▒          ");
-				try {Thread.sleep(1000);}catch(Exception e) {}
-			}
-			else if(i==3) {
-				System.out.println("          ▒▒▒▒▒▒▒▒▒▒         ");
-				System.out.println("                  ▒▒         ");
-				System.out.println("          ▒▒▒▒▒▒▒▒▒▒         ");
-				System.out.println("                  ▒▒         ");
-				System.out.println("                  ▒▒         ");
-				System.out.println("          ▒▒▒▒▒▒▒▒▒▒         ");
-				try {Thread.sleep(1000);}catch(Exception e) {}
-			}
-			else if(i==4) {
-				System.out.println("          ▒▒▒▒▒▒▒▒▒▒         ");
-				System.out.println("                  ▒▒         ");
-				System.out.println("          ▒▒▒▒▒▒▒▒▒▒         ");
-				System.out.println("          ▒▒                 ");
-				System.out.println("          ▒▒                 ");
-				System.out.println("          ▒▒▒▒▒▒▒▒▒▒         ");
-				try {Thread.sleep(1000);}catch(Exception e) {}
-			}
-			else if(i==5) {
-				System.out.println("            ▒▒▒▒             ");
-				System.out.println("              ▒▒             ");
-				System.out.println("              ▒▒             ");
-				System.out.println("              ▒▒             ");
-				System.out.println("              ▒▒             ");
-				System.out.println("          ▒▒▒▒▒▒▒▒▒▒         ");
-				try {Thread.sleep(1000);}catch(Exception e) {}
-			}
-		}
+	
+	public static void 게임리셋메소드() { // 게임 종료 후 재시작전 게임설정 초기화
+		자금 = 10000 ;
+		콜라 = 0 ;
+		사이다 = 0 ;
+		환타 = 0 ;
+		레드불 = 0 ;
+		시간차이 = 1 ; // 시간차이체크 메소드를 이용하여 게임 경과시간을 수치로 나타냄 (5초당 1씩증가)
+		경고횟수 = 0 ;
 	}
-	 public static void gameover() {
-	      System.out.println();      
-	      System.out.println("   ##########       ######      ####    ####   ############");
-	      System.out.println("  ############     ########     #####  #####   ############");
-	      System.out.println("  ####    ####   ####    ####   ############   ####");
-	      System.out.println("  ###            ####    ####   ##  ####  ##   ############");
-	      System.out.println("  ###    #####   ############   ##  ####  ##   ############");
-	      System.out.println("  ####      ##   ############   ##  ####  ##   ####");
-	      System.out.println("  ############   ####    ####   ##  ####  ##   ############");
-	      System.out.println("   ##########    ####    ####   ##  ####  ##   ############");
-	      System.out.println();
-	      System.out.println("     ######      ####    ####   ############   ##########");
-	      System.out.println("   ####  ####    ####    ####   ############   ####  #####");
-	      System.out.println("  ####    ####   ####    ####   ####           ###    #####");
-	      System.out.println("  ###      ###   ####    ####   ############   ####  #####");
-	      System.out.println("  ###      ###   ####    ####   ############   ##########");
-	      System.out.println("  ####    ####    ####  ####    ####           ###    ###");
-	      System.out.println("   ####  ####      ########     ############   ###     ###");
-	      System.out.println("     ######          ####       ############   ###      ###");
-	   }
-	 public static void 시작화면() {
-		 for(int i = 0 ; i <= 35 ; i++) {
-			 System.out.println();
-		 }
-			System.out.println("********* 자판기 게임 *********");
-			System.out.println("     자판기에 음료수가 모자라서   ");
-			System.out.println("     판매하지 못하면 경고입니다   ");
-			System.out.println("         잘 채워주세요!        ");
-			System.out.println("*****************************");
-	 }
 	 
-	 public static boolean 랭크판정(long 게임시간) { // 랭크판정메소드
+	 public static int 랭크판정(long 게임시간) { // 랭크판정메소드
 		 for(int i = 0 ; i < 5 ; i++) {
-			 if(Drink.랭킹.get(i).getPlaytime() < 게임시간) { // 랭크 리스트 0~4인덱스 값과 게임시간 비교, 5위안에 들었을 시 true 반환
-				 return true;
+			 if(랭킹.get(i).getPlaytime() < 게임시간) { // 랭크 리스트 0~4인덱스 값과 게임시간 비교, 5위안에 들었을 시 인덱스 반환
+				 return i ;
 			 }
 		 }
-		 return false; // 0~4인덱스 값과 비교했을때 게임시간이 작을때 false반환(5위 안에 못들었을 시)
+		 return 100; // 0~4인덱스 값과 비교했을때 게임시간이 작을때 100 반환(5위 안에 못들었을 시)(꼭 100이 아니어도 됨 그냥 큰숫자넣었음) 
 	 }
 	 
-	 public static void 랭크등록(long 게임시간, String 이름, String 코멘트) { // 5위안에 들었을시 매개변수 이름과 코멘트를 받아 랭크 리스트에 저장
-		 for(int i = 0 ; i < 5 ; i++) {
-			 if(Drink.랭킹.get(i).getPlaytime() < 게임시간) {
-				 Rank rank = new Rank(i+1, 이름, 게임시간, 코멘트);
-				 Drink.랭킹.add(i,rank);
-				 break;
-			 }
-		 }	 	 
+	 public static void 랭크등록(int result, long 게임시간, String 이름, String 코멘트) { // 5위안에 들었을시 매개변수 이름과 코멘트를 받아 랭크 리스트에 저장
+		 Rank rank = new Rank(이름, 게임시간, 코멘트);
+		 랭킹.add(result,rank);
 	 }
-	 
-	 public static void 랭크출력() { // 랭크 출력 메소드
-		 for(int i = 0 ; i <= 35 ; i++) {
-			 System.out.println();
-		 }
-		 System.out.println("--------순위표--------");
-		 System.out.println("랭킹\t이름\t플레이시간\t\t코멘트");
-		 for(int i = 0 ; i < 5 ; i++) {
-			 System.out.println((i+1)+"\t"+ Drink.랭킹.get(i).getName()+"\t"+ Drink.랭킹.get(i).getPlaytime()+"\t\t"+ Drink.랭킹.get(i).getContent());
-		 }
-		 System.out.println("---------------------");
-	 }
-	 
+		 	 	 	 
 	 public static void save() {
-		 try { // 예외[오류]가 발생할것 같은 코드 묶음 (예상)					// 파일 경로 , 이어쓰기=true[옵션]
-				FileOutputStream fileOutputStream = new FileOutputStream("D:/java/자판기.txt");
+		 try {
+				FileOutputStream fileOutputStream = new FileOutputStream("C:/java/자판기.txt");
 				for(int i = 0 ; i < 5 ; i++) {
-					String 내보내기 = Drink.랭킹.get(i).getRank()+","+Drink.랭킹.get(i).getName()+","+Drink.랭킹.get(i).getPlaytime()+","+Drink.랭킹.get(i).getContent()+"\n";
+					String 내보내기 = 랭킹.get(i).getName()+","+랭킹.get(i).getPlaytime()+","+랭킹.get(i).getContent()+"\n";
 					fileOutputStream.write(내보내기.getBytes()); // 문자열 -> 바이트열
 				}
 			}
@@ -244,23 +65,23 @@ public class Controller extends Thread{
 	 
 	public static void load() {
 		try {
-			FileInputStream fileInputStream = new FileInputStream("D:/java/자판기.txt");
+			FileInputStream fileInputStream = new FileInputStream("C:/java/자판기.txt");
 			byte[] bytes = new byte[1024]; // bit -> byte -> kb -> mb -> gb
 			fileInputStream.read(bytes);
 			String 파일내용 = new String(bytes); // 바이트열 -> 문자열
 			String[] file = 파일내용.split("\n");	
 			int j = 0 ;
-			for(Rank temp : Drink.랭킹) {
-				if(j == Drink.랭킹.size()){
+			for(Rank temp : 랭킹) {
+				if(j == 랭킹.size()){
 					break;
 				}
 				int i = 0 ;
 				for(String temp2 : file) {
 					String[] 필드목록 = temp2.split(",");
-					Rank rank = new Rank(Integer.parseInt(필드목록[0]), 필드목록[1], Long.parseLong(필드목록[2]),필드목록[3]);
+					Rank rank = new Rank(필드목록[0], Long.parseLong(필드목록[1]), 필드목록[2]);
 					// 리스트 저장
-					Drink.랭킹.remove(i);
-					Drink.랭킹.add(i,rank);
+					랭킹.remove(i);
+					랭킹.add(i,rank);
 					i++;
 				}
 				j++;

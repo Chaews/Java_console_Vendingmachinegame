@@ -15,7 +15,7 @@ public class Music extends Thread{
 	private FileInputStream fis;
 	private BufferedInputStream bis;
 	
-	public Music(String name,boolean isloop) {//생성자
+	public Music(String name, boolean isLoop) {//생성자
 		// 곡의 제목과 무한반복인지의 유무
 		try {// 예외처리
 			this.isLoop = isLoop; //isLoop 변수초기화

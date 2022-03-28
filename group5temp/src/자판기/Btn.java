@@ -73,12 +73,12 @@ public class Btn {
       btn1.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e) {
             statusLabel.setText("콜라가 선택되었습니다.");
-            if(Drink.자금<300) {
+            if(Controller.자금<300) {
             	statusLabel.setText("자금이 부족하여 구매할 수 없습니다.");
             }
             else {
-	            Drink.콜라++; 
-	            Drink.자금 -= 300 ;
+            	Controller.콜라++; 
+            	Controller.자금 -= 300 ;
 	            
             }
          }
@@ -87,12 +87,12 @@ public class Btn {
       btn2.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e) {
             statusLabel.setText("환타가 선택되었습니다.");
-            if(Drink.자금<200) {
+            if(Controller.자금<200) {
             	statusLabel.setText("자금이 부족하여 구매할 수 없습니다.");
             }
             else{
-            	Drink.환타++; 
-            	Drink.자금 -= 200;
+            	Controller.환타++; 
+            	Controller.자금 -= 200;
             	
             }
          }
@@ -101,12 +101,12 @@ public class Btn {
       btn3.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e) {
             statusLabel.setText("사이다가 선택되었습니다.");
-            if(Drink.자금<100) {
+            if(Controller.자금<100) {
             	statusLabel.setText("자금이 부족하여 구매할 수 없습니다.");
             }
             else{
-            	Drink.사이다++; 
-            	Drink.자금 -= 100;
+            	Controller.사이다++; 
+            	Controller.자금 -= 100;
             	
             }
          }
@@ -115,18 +115,19 @@ public class Btn {
       btn4.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e) {
             statusLabel.setText("레드불이 선택되었습니다.");
-            if(Drink.자금<1000) {
+            if(Controller.자금<1000) {
             	statusLabel.setText("자금이 부족하여 구매할 수 없습니다.");
             }
             else{
-            	Drink.레드불++; 
-            	Drink.자금 -= 1000;
+            	Controller.레드불++; 
+            	Controller.자금 -= 1000;
             	
             }
          }
       });
  
       mainFrame.setVisible(true);
+      mainFrame.setAlwaysOnTop(true); // 항상 위에
  
    }
 }
