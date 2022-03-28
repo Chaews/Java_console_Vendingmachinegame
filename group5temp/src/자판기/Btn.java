@@ -29,11 +29,11 @@ public class Btn {
  
    private void prepareGUI() {
       // Frame 에 대한 셋팅
-      mainFrame = new Frame("음료 추가");
-      mainFrame.setSize(400, 200);
+      mainFrame = new Frame("음료 추가"); // 프레임 이름
+      mainFrame.setSize(400, 200); // 프레임 사이즈
       mainFrame.setLayout(new GridLayout(3, 1));
-      mainFrame.setLocation(820, 690);
-      mainFrame.addWindowListener(new WindowAdapter() {
+      mainFrame.setLocation(880, 640); // 프레임위치
+      mainFrame.addWindowListener(new WindowAdapter() { // 프레임 닫을시 스레드 종료
          public void windowClosing(WindowEvent windowEvent) {
             System.exit(0);
          }
@@ -59,7 +59,7 @@ public class Btn {
       mainFrame.setVisible(true);
    }
  
-   void showButton() {
+   void showButton() { // 버튼
       Button btn1 = new Button("콜라[300]");
       Button btn2 = new Button("환타[200]");
       Button btn3 = new Button("사이다[100]");
@@ -70,13 +70,13 @@ public class Btn {
       controlPanel.add(btn3);
       controlPanel.add(btn4);
  
-      btn1.addActionListener(new ActionListener() {
+      btn1.addActionListener(new ActionListener() { // 버튼클릭시 동작설정
          public void actionPerformed(ActionEvent e) {
             statusLabel.setText("콜라가 선택되었습니다.");
-            if(Controller.자금<300) {
+            if(Controller.자금<300) { // 자금이 부족하면 구매할 수 없음
             	statusLabel.setText("자금이 부족하여 구매할 수 없습니다.");
             }
-            else {
+            else { // 콜라 1개 구매, 자금 차감
             	Controller.콜라++; 
             	Controller.자금 -= 300 ;
 	            

@@ -22,8 +22,10 @@ public class Controller extends Thread{
 	public static void 메시지랭킹리셋메소드() {
 		for(int i = 1 ; i <= 5 ; i++) { // 이작업을 수행하지 않을경우 게임시작시 0,1,2,3,4 인덱스에 null상태라 .get 접근연산자 사용불가
 			메시지.add(0," "); 
+		}
+		for(int i = 1 ; i <= 10 ; i++) { // 이작업을 수행하지 않을경우 게임시작시 0,1,2,3,4 인덱스에 null상태라 .get 접근연산자 사용불가
 			Rank rank = new Rank(" ", 0, " ");
-			랭킹.add(rank); // 
+			랭킹.add(rank);
 		}
 	}
 	
@@ -33,12 +35,12 @@ public class Controller extends Thread{
 		사이다 = 0 ;
 		환타 = 0 ;
 		레드불 = 0 ;
-		시간차이 = 1 ; // 시간차이체크 메소드를 이용하여 게임 경과시간을 수치로 나타냄 (5초당 1씩증가)
+		시간차이 = 1 ;
 		경고횟수 = 0 ;
 	}
 	 
 	 public static int 랭크판정(long 게임시간) { // 랭크판정메소드
-		 for(int i = 0 ; i < 5 ; i++) {
+		 for(int i = 0 ; i < 10 ; i++) {
 			 if(랭킹.get(i).getPlaytime() < 게임시간) { // 랭크 리스트 0~4인덱스 값과 게임시간 비교, 5위안에 들었을 시 인덱스 반환
 				 return i ;
 			 }
@@ -48,13 +50,13 @@ public class Controller extends Thread{
 	 
 	 public static void 랭크등록(int result, long 게임시간, String 이름, String 코멘트) { // 5위안에 들었을시 매개변수 이름과 코멘트를 받아 랭크 리스트에 저장
 		 Rank rank = new Rank(이름, 게임시간, 코멘트);
-		 랭킹.add(result,rank);
+		 랭킹.add(result,rank); // 랭크판정메소드로부터 얻어낸 인덱스 값에 저장
 	 }
 		 	 	 	 
-	 public static void save() {
+	 public static void save() { // 랭킹 파일처리 메소드
 		 try {
 				FileOutputStream fileOutputStream = new FileOutputStream("C:/java/자판기.txt");
-				for(int i = 0 ; i < 5 ; i++) {
+				for(int i = 0 ; i < 10 ; i++) {
 					String 내보내기 = 랭킹.get(i).getName()+","+랭킹.get(i).getPlaytime()+","+랭킹.get(i).getContent()+"\n";
 					fileOutputStream.write(내보내기.getBytes()); // 문자열 -> 바이트열
 				}
@@ -63,29 +65,24 @@ public class Controller extends Thread{
 			}
 	 }
 	 
-	public static void load() {
+	public static void load() { // 랭킹파일 불러오기 메소드
 		try {
 			FileInputStream fileInputStream = new FileInputStream("C:/java/자판기.txt");
 			byte[] bytes = new byte[1024]; // bit -> byte -> kb -> mb -> gb
 			fileInputStream.read(bytes);
 			String 파일내용 = new String(bytes); // 바이트열 -> 문자열
-			String[] file = 파일내용.split("\n");	
-			int j = 0 ;
-			for(Rank temp : 랭킹) {
-				if(j == 랭킹.size()){
+			String[] file = 파일내용.split("\n");		
+			int i = 0 ;
+			for(String temp : file) {
+				if(i+1 == file.length){
 					break;
 				}
-				int i = 0 ;
-				for(String temp2 : file) {
-					String[] 필드목록 = temp2.split(",");
-					Rank rank = new Rank(필드목록[0], Long.parseLong(필드목록[1]), 필드목록[2]);
-					// 리스트 저장
-					랭킹.remove(i);
-					랭킹.add(i,rank);
-					i++;
-				}
-				j++;
-			}
+				String[] 필드목록 = temp.split(",");
+				Rank rank = new Rank(필드목록[0], Long.parseLong(필드목록[1]), 필드목록[2]);
+				랭킹.remove(i);
+				랭킹.add(i,rank);
+				i++;
+			}				
 		}
 		catch(Exception e){ // catch : 예외 잡기 -> Exception 클래스의 객체에 저장
 		}

@@ -16,15 +16,15 @@ public class Drink{
 				Controller.load(); // 랭크 정보 저장된 파일 불러오기
 				Picture.시작화면(); // 시작화면 출력 메소드
 				try {
-					System.out.println("1.게임시작\t2.순위보기"); 
-					System.out.print("선택 >> "); int ch = scanner.nextInt();
+					System.out.println("\t\t\t1.게임시작\t2.순위보기"); 
+					System.out.print("\t\t\t선택 >> "); int ch = scanner.nextInt();
 					scanner.nextLine(); // 순위보기 화면시 엔터키사용을 위해 nextLine 사용
 					if(ch==1) {
 						break; // 시작화면
 					}
 					else if(ch==2) {
 						Picture.랭크출력(); // 랭크 출력 메소드
-						System.out.println("전단계로 돌아가시려면 아무키나 눌러주세요..");
+						System.out.println("\t\t\t전단계로 돌아가시려면 아무키나 눌러주세요..");
 						scanner.nextLine();
 					}
 					else {
@@ -70,18 +70,17 @@ public class Drink{
 			long 종료시간 = System.currentTimeMillis(); // 랭크판정을 위해 종료시간 확인
 			long 게임시간 = (종료시간-Controller.시작시간)/1000; // 총 게임시간을 변수로 저장
 			
-			
+			System.out.println();
 			
 			int result = Controller.랭크판정(게임시간); // 랭크 판정메소드
-			if(result<=4) { // 순위가 5위이상일때 랭크등록 (인덱스 이므로 0~4)
+			if(result<=9) { // 순위가 10위이상일때 랭크등록 (인덱스 이므로 0~9)
 				System.out.println(" 축하합니다!! " + (result+1) + "등 입니다!!");
 				System.out.print("이름을 입력해주세요 : "); String 이름 = scanner.nextLine();
 				System.out.print("코멘트를 입력해주세요 : "); String 코멘트 = scanner.nextLine();
 				Controller.랭크등록(result, 게임시간, 이름, 코멘트);
 			}
-
-			Picture.랭크출력(); // 랭크 출력 메소드
 			Controller.save(); // 랭크정보 파일 저장메소드
+			
 		}	
 	}
 		

@@ -7,7 +7,7 @@ public class Buy extends Thread {
 	String 음료이름;
 	private boolean stop;
 	
-	public void setStop (boolean stop) { // 음악구매 스레드 종료메소드
+	public void setStop (boolean stop) { // 음료구매 스레드 종료메소드
 		this.stop = stop ;
 	}
 	
@@ -18,7 +18,7 @@ public class Buy extends Thread {
 	@Override
 	public synchronized void run() { // 메인스레드와 같이 실행될 스레드
 		try {Thread.sleep(5000);}catch(Exception e) {} // 컴퓨터 구매활동 5초이후 시작
-		while(!stop) {
+		while(!stop) { // 스레드 실행 종료 제어를 위해 stop 사용
 			Music 구매 = new Music("구매.mp3",false); // 음악객체 생성(컴퓨터가 구매에 성공시 재생)
 			if(Controller.경고횟수>=4) { // 경고횟수 4회 이상시 스레드 종료시킴
 				break;

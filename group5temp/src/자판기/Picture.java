@@ -11,14 +11,22 @@ public class Picture {
 	}
 	
 	 public static void 시작화면() {
-		 for(int i = 0 ; i <= 35 ; i++) {
-			 System.out.println();
-		 }
-			System.out.println("********* 자판기 게임 *********");
-			System.out.println("     자판기에 음료수가 모자라서   ");
-			System.out.println("     판매하지 못하면 경고입니다   ");
-			System.out.println("         잘 채워주세요!        ");
-			System.out.println("*****************************");
+		 	for(int i = 1 ; i <= 34 ; i++) {
+		 		System.out.println();
+		 	}
+			System.out.println("\t\t\t┌─────────────────────────┐");
+			System.out.println("\t\t\t│         화면조정글씨        │");
+			System.out.println("\t\t\t└─────────────────────────┘");
+			System.out.println("\t\t콘솔창을 최대화 해주시고 화면조정글씨 박스가 깨지지 않도록 화면을 확대해주세요");
+			System.out.println();
+			System.out.println();
+			
+			System.out.println("\t\t\t********* 자판기 게임 *********");
+			System.out.println("\t\t\t     자판기에 음료수가 모자라서   ");
+			System.out.println("\t\t\t     판매하지 못하면 경고입니다   ");
+			System.out.println("\t\t\t         잘 채워주세요!        ");
+			System.out.println("\t\t\t*****************************");
+
 	 }
 	
 	public static void 화면출력메소드() { // 화면 출력 메소드
@@ -131,48 +139,49 @@ public class Picture {
 				try {Thread.sleep(1000);}catch(Exception e) {}
 			}
 			else if(i==1) {			
-				System.out.println("          ▒▒▒▒▒▒▒▒▒▒         ");
-				System.out.println("          ▒▒                 ");
-				System.out.println("          ▒▒▒▒▒▒▒▒▒▒         ");
-				System.out.println("                  ▒▒         ");
-				System.out.println("                  ▒▒         ");
-				System.out.println("          ▒▒▒▒▒▒▒▒▒▒         ");
+				System.out.println("\t\t\t          ▒▒▒▒▒▒▒▒▒▒         ");
+				System.out.println("\t\t\t          ▒▒                 ");
+				System.out.println("\t\t\t          ▒▒▒▒▒▒▒▒▒▒         ");
+				System.out.println("\t\t\t                  ▒▒         ");
+				System.out.println("\t\t\t                  ▒▒         ");
+				System.out.println("\t\t\t          ▒▒▒▒▒▒▒▒▒▒         ");
+				
 				try {Thread.sleep(1000);}catch(Exception e) {}
 			}
 			else if(i==2) {
-				System.out.println("          ▒▒     ▒▒          ");
-				System.out.println("          ▒▒     ▒▒          ");
-				System.out.println("          ▒▒     ▒▒          ");
-				System.out.println("          ▒▒▒▒▒▒▒▒▒▒         ");
-				System.out.println("                 ▒▒          ");
-				System.out.println("                 ▒▒          ");
+				System.out.println("\t\t\t          ▒▒     ▒▒          ");
+				System.out.println("\t\t\t          ▒▒     ▒▒          ");
+				System.out.println("\t\t\t          ▒▒     ▒▒          ");
+				System.out.println("\t\t\t          ▒▒▒▒▒▒▒▒▒▒         ");
+				System.out.println("\t\t\t                 ▒▒          ");
+				System.out.println("\t\t\t                 ▒▒          ");
 				try {Thread.sleep(1000);}catch(Exception e) {}
 			}
 			else if(i==3) {
-				System.out.println("          ▒▒▒▒▒▒▒▒▒▒         ");
-				System.out.println("                  ▒▒         ");
-				System.out.println("          ▒▒▒▒▒▒▒▒▒▒         ");
-				System.out.println("                  ▒▒         ");
-				System.out.println("                  ▒▒         ");
-				System.out.println("          ▒▒▒▒▒▒▒▒▒▒         ");
+				System.out.println("\t\t\t          ▒▒▒▒▒▒▒▒▒▒         ");
+				System.out.println("\t\t\t                  ▒▒         ");
+				System.out.println("\t\t\t          ▒▒▒▒▒▒▒▒▒▒         ");
+				System.out.println("\t\t\t                  ▒▒         ");
+				System.out.println("\t\t\t                  ▒▒         ");
+				System.out.println("\t\t\t          ▒▒▒▒▒▒▒▒▒▒         ");
 				try {Thread.sleep(1000);}catch(Exception e) {}
 			}
 			else if(i==4) {
-				System.out.println("          ▒▒▒▒▒▒▒▒▒▒         ");
-				System.out.println("                  ▒▒         ");
-				System.out.println("          ▒▒▒▒▒▒▒▒▒▒         ");
-				System.out.println("          ▒▒                 ");
-				System.out.println("          ▒▒                 ");
-				System.out.println("          ▒▒▒▒▒▒▒▒▒▒         ");
+				System.out.println("\t\t\t          ▒▒▒▒▒▒▒▒▒▒         ");
+				System.out.println("\t\t\t                  ▒▒         ");
+				System.out.println("\t\t\t          ▒▒▒▒▒▒▒▒▒▒         ");
+				System.out.println("\t\t\t          ▒▒                 ");
+				System.out.println("\t\t\t          ▒▒                 ");
+				System.out.println("\t\t\t          ▒▒▒▒▒▒▒▒▒▒         ");
 				try {Thread.sleep(1000);}catch(Exception e) {}
 			}
 			else if(i==5) {
-				System.out.println("            ▒▒▒▒             ");
-				System.out.println("              ▒▒             ");
-				System.out.println("              ▒▒             ");
-				System.out.println("              ▒▒             ");
-				System.out.println("              ▒▒             ");
-				System.out.println("          ▒▒▒▒▒▒▒▒▒▒         ");
+				System.out.println("\t\t\t            ▒▒▒▒             ");
+				System.out.println("\t\t\t              ▒▒             ");
+				System.out.println("\t\t\t              ▒▒             ");
+				System.out.println("\t\t\t              ▒▒             ");
+				System.out.println("\t\t\t              ▒▒             ");
+				System.out.println("\t\t\t          ▒▒▒▒▒▒▒▒▒▒         ");
 				try {Thread.sleep(1000);}catch(Exception e) {}
 			}
 		}
@@ -200,15 +209,13 @@ public class Picture {
 	   }
 	 
 	 public static void 랭크출력() { // 랭크 출력 메소드
-		 for(int i = 0 ; i <= 35 ; i++) {
-			 System.out.println();
-		 }
-		 System.out.println("--------순위표--------");
-		 System.out.println("랭킹\t이름\t플레이시간\t\t코멘트");
-		 for(int i = 0 ; i < 5 ; i++) {
-			 System.out.println((i+1)+"\t"+ Controller.랭킹.get(i).getName()+"\t"+ Controller.랭킹.get(i).getPlaytime()+"\t\t"+ Controller.랭킹.get(i).getContent());
-		 }
-		 System.out.println("---------------------");
+		cls();
+		System.out.println("\t\t\t---------------- 순위표 ----------------");
+		System.out.println("\t\t\t랭킹\t이름\t플레이시간\t코멘트");
+		for(int i = 0 ; i < 10 ; i++) {
+		System.out.println("\t\t\t"+(i+1)+"\t"+ Controller.랭킹.get(i).getName()+"\t"+ Controller.랭킹.get(i).getPlaytime()+"초\t"+ Controller.랭킹.get(i).getContent());
+		}
+		System.out.println("\t\t\t---------------------------------------");
 	 }
 
 }
