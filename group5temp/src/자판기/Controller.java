@@ -48,7 +48,7 @@ public class Controller extends Thread{
 					System.out.print  ("  弛                                               (|) (式)      弛        弛                                 弛\n");
 		            System.out.print  ("  弛       ###  ####   ###  #   # ####              #####       弛        弛                                 弛\n");
 		            System.out.print  ("  弛      #   # #   # #   # #   # #   #             #           弛        弛                                 弛\n");
-		            System.out.print  ("  弛      # ### #  #  #   # #   # ####              ####        弛        弛                                 弛\n");
+		            System.out.print  ("  弛      # ### ####  #   # #   # ####              ####        弛        弛                                 弛\n");
 		            System.out.print  ("  弛      #   # #   # #   # #   # #                     #       弛        弛                                 弛\n");
 		            System.out.print  ("  弛       #### #   #  ###   ###  #                 ####        弛        弛                                 弛\n");
 					System.out.print  ("  弛     忙式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式忖     弛        戌式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式戎\n");
@@ -88,7 +88,7 @@ public class Controller extends Thread{
 					System.out.print  ("  弛                                               (|) (式)      弛        弛                                 弛\n");
 		            System.out.print  ("  弛       ###  ####   ###  #   # ####              #####       弛        弛                                 弛\n");
 		            System.out.print  ("  弛      #   # #   # #   # #   # #   #             #           弛        弛                                 弛\n");
-		            System.out.print  ("  弛      # ### #  #  #   # #   # ####              ####        弛        弛                                 弛\n");
+		            System.out.print  ("  弛      # ### ####  #   # #   # ####              ####        弛        弛                                 弛\n");
 		            System.out.print  ("  弛      #   # #   # #   # #   # #                     #       弛        弛                                 弛\n");
 		            System.out.print  ("  弛       #### #   #  ###   ###  #                 ####        弛        弛                                 弛\n");
 					System.out.print  ("  弛     忙式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式忖     弛        戌式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式式戎\n");
