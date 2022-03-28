@@ -189,7 +189,7 @@ public class Controller extends Thread{
 	      System.out.println("     ######          ####       ############   ###      ###");
 	   }
 	 public static void 시작화면() {
-		 for(int i = 0 ; i <= 30 ; i++) {
+		 for(int i = 0 ; i <= 35 ; i++) {
 			 System.out.println();
 		 }
 			System.out.println("********* 자판기 게임 *********");
@@ -199,16 +199,16 @@ public class Controller extends Thread{
 			System.out.println("*****************************");
 	 }
 	 
-	 public static boolean 랭크판정(long 게임시간) {
+	 public static boolean 랭크판정(long 게임시간) { // 랭크판정메소드
 		 for(int i = 0 ; i < 5 ; i++) {
-			 if(Drink.랭킹.get(i).getPlaytime() < 게임시간) {
+			 if(Drink.랭킹.get(i).getPlaytime() < 게임시간) { // 랭크 리스트 0~4인덱스 값과 게임시간 비교, 5위안에 들었을 시 true 반환
 				 return true;
 			 }
 		 }
-		 return false;
+		 return false; // 0~4인덱스 값과 비교했을때 게임시간이 작을때 false반환(5위 안에 못들었을 시)
 	 }
 	 
-	 public static void 랭크등록(long 게임시간, String 이름, String 코멘트) {
+	 public static void 랭크등록(long 게임시간, String 이름, String 코멘트) { // 5위안에 들었을시 매개변수 이름과 코멘트를 받아 랭크 리스트에 저장
 		 for(int i = 0 ; i < 5 ; i++) {
 			 if(Drink.랭킹.get(i).getPlaytime() < 게임시간) {
 				 Rank rank = new Rank(i+1, 이름, 게임시간, 코멘트);
@@ -218,8 +218,8 @@ public class Controller extends Thread{
 		 }	 	 
 	 }
 	 
-	 public static void 랭크출력() {
-		 for(int i = 0 ; i <= 30 ; i++) {
+	 public static void 랭크출력() { // 랭크 출력 메소드
+		 for(int i = 0 ; i <= 35 ; i++) {
 			 System.out.println();
 		 }
 		 System.out.println("--------순위표--------");

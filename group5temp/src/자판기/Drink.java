@@ -28,23 +28,23 @@ public class Drink{
 		Buy buy4 = new Buy("레드불"); // 컴퓨터 레드불 구매 객체 생성
 
 		for(int i = 1 ; i <=5 ; i++) { // 이작업을 수행하지 않을경우 게임시작시 0,1,2,3,4 인덱스에 null상태라 .get 접근연산자 사용불가
-			메시지.add(" ");
+			메시지.add(" "); 
 			Rank rank = new Rank(i, " ", 0, " ");
-			랭킹.add(i-1, rank);
+			랭킹.add(i-1, rank); // 
 		}
-		Controller.load();
+		Controller.load(); // 랭크 정보 저장된 파일 불러오기
 		
-		while(true) {
-			Controller.시작화면();
+		while(true) { // 시작화면 반복문 시작 [종료조건 : 1번선택시]
+			Controller.시작화면(); // 시작화면 출력 메소드
 			try {
 				System.out.println("1.게임시작\t2.순위보기"); 
 				System.out.print("선택 >> "); int ch = scanner.nextInt();
-				scanner.nextLine();
+				scanner.nextLine(); // 순위보기 화면시 엔터키사용을 위해 nextLine 사용
 				if(ch==1) {
-					break;
+					break; // 시작화면
 				}
 				else if(ch==2) {
-					Controller.랭크출력();
+					Controller.랭크출력(); // 랭크 출력 메소드
 					System.out.println("전단계로 돌아가시려면 아무키나 눌러주세요..");
 					scanner.nextLine();
 				}
@@ -52,13 +52,14 @@ public class Drink{
 					
 				}
 			}
-			catch(Exception e) {
+			catch(Exception e) { //
+				System.out.println("알림) 잘못된 입력입니다.");
 				scanner = new Scanner(System.in);
 			}
 
 		}
 		
-		Controller.시작카운트(); // 오프닝 화면 출력메소드
+		Controller.시작카운트(); // 카운트다운 출력메소드
 		
 		Btn buttons = new Btn(); // 버튼객체 생성
 	    buttons.showButton(); // 버튼 생성
@@ -76,8 +77,8 @@ public class Drink{
 		Controller.gameover(); // 게임오버화면 출력 메소드
 		
 		
-		long 종료시간 = System.currentTimeMillis();
-		long 게임시간 = (종료시간-시작시간)/1000;
+		long 종료시간 = System.currentTimeMillis(); // 랭크판정을 위해 종료시간 확인
+		long 게임시간 = (종료시간-시작시간)/1000; // 총 게임시간을 변수로 저장
 		
 		
 		System.out.println();
@@ -85,19 +86,16 @@ public class Drink{
 		System.out.println();
 		
 		
-		boolean result = Controller.랭크판정(게임시간);
-		if(result) {
+		boolean result = Controller.랭크판정(게임시간); // 랭크 판정메소드
+		if(result) { // 순위가 5위이상일때 랭크등록
 			System.out.println(" ********** 상위 랭커 입니다 ********** ");
-			System.out.print("이름을 입력해주세요 : "); String 이름 = scanner.next();
-			System.out.print("코멘트를 입력해주세요 : "); String 코멘트 = scanner.next();
+			System.out.print("이름을 입력해주세요 : "); String 이름 = scanner.nextLine();
+			System.out.print("코멘트를 입력해주세요 : "); String 코멘트 = scanner.nextLine();
 			Controller.랭크등록(게임시간,이름,코멘트);
 		}
-		
-		Controller.랭크출력();
-		Controller.save();
-		
-	
-	
+		Controller.랭크출력(); // 랭크 출력 메소드
+		Controller.save(); // 랭크정보 파일 저장메소드
+			
 	}
 		
 }

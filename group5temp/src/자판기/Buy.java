@@ -37,7 +37,7 @@ public class Buy extends Thread {
 						Drink.메시지.remove(5);
 					}
 				}
-					try {Thread.sleep(2000-Drink.시간차이*10);}catch(Exception e) {} // 시간차이 변수에 따라 속도조절
+					try {Thread.sleep(2000-Drink.시간차이*50);}catch(Exception e) {} // 시간차이 변수에 따라 속도조절
 			}
 			else if(음료이름=="환타") { // 환타 구매 스레드 (콜라와 동일한 구조)
 				Random random = new Random();
@@ -58,7 +58,7 @@ public class Buy extends Thread {
 						Drink.메시지.remove(5);
 					}
 				}
-				try {Thread.sleep(2000-Drink.시간차이*10);}catch(Exception e) {}
+				try {Thread.sleep(2000-Drink.시간차이*50);}catch(Exception e) {}
 			}
 			else if(음료이름=="사이다") { // 사이다 구매 스레드 (콜라와 동일한 구조)
 				Random random = new Random();
@@ -80,7 +80,7 @@ public class Buy extends Thread {
 						Drink.메시지.remove(5);
 					}
 				}
-				try {Thread.sleep(2000-Drink.시간차이*10);}catch(Exception e) {}
+				try {Thread.sleep(2000-Drink.시간차이*50);}catch(Exception e) {}
 			}
 			else if(음료이름=="레드불") { // 레드불 구매 스레드 (콜라와 동일한 구조)	
 				Random random = new Random();
@@ -102,7 +102,7 @@ public class Buy extends Thread {
 						Drink.메시지.remove(5);
 					}
 				}
-				try {Thread.sleep(2000-Drink.시간차이*10);}catch(Exception e) {}
+				try {Thread.sleep(2000-Drink.시간차이*50);}catch(Exception e) {}
 			}
 		}
 			
