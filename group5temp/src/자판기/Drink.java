@@ -36,19 +36,26 @@ public class Drink{
 		
 		while(true) {
 			Controller.시작화면();
-			System.out.println("1.게임시작\t2.순위보기"); int ch = scanner.nextInt();
-			scanner.nextLine();
-			if(ch==1) {
-				break;
-			}
-			else if(ch==2) {
-				Controller.랭크출력();
-				System.out.println("전단계로 돌아가시려면 아무키나 눌러주세요..");
+			try {
+				System.out.println("1.게임시작\t2.순위보기"); 
+				System.out.print("선택 >> "); int ch = scanner.nextInt();
 				scanner.nextLine();
+				if(ch==1) {
+					break;
+				}
+				else if(ch==2) {
+					Controller.랭크출력();
+					System.out.println("전단계로 돌아가시려면 아무키나 눌러주세요..");
+					scanner.nextLine();
+				}
+				else {
+					
+				}
 			}
-			else {
-				
+			catch(Exception e) {
+				scanner = new Scanner(System.in);
 			}
+
 		}
 		
 		Controller.시작카운트(); // 오프닝 화면 출력메소드
@@ -80,9 +87,9 @@ public class Drink{
 		
 		boolean result = Controller.랭크판정(게임시간);
 		if(result) {
-			System.out.println(" *상위 랭커 입니다* ");
-			System.out.print("이름을 입력해주세요"); String 이름 = scanner.next();
-			System.out.print("코멘트를 입력해주세요"); String 코멘트 = scanner.next();
+			System.out.println(" ********** 상위 랭커 입니다 ********** ");
+			System.out.print("이름을 입력해주세요 : "); String 이름 = scanner.next();
+			System.out.print("코멘트를 입력해주세요 : "); String 코멘트 = scanner.next();
 			Controller.랭크등록(게임시간,이름,코멘트);
 		}
 		

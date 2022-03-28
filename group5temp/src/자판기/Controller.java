@@ -189,6 +189,9 @@ public class Controller extends Thread{
 	      System.out.println("     ######          ####       ############   ###      ###");
 	   }
 	 public static void 시작화면() {
+		 for(int i = 0 ; i <= 30 ; i++) {
+			 System.out.println();
+		 }
 			System.out.println("********* 자판기 게임 *********");
 			System.out.println("     자판기에 음료수가 모자라서   ");
 			System.out.println("     판매하지 못하면 경고입니다   ");
@@ -216,10 +219,13 @@ public class Controller extends Thread{
 	 }
 	 
 	 public static void 랭크출력() {
+		 for(int i = 0 ; i <= 30 ; i++) {
+			 System.out.println();
+		 }
 		 System.out.println("--------순위표--------");
 		 System.out.println("랭킹\t이름\t플레이시간\t\t코멘트");
 		 for(int i = 0 ; i < 5 ; i++) {
-			 System.out.println(Drink.랭킹.get(i).getRank()+"\t"+ Drink.랭킹.get(i).getName()+"\t"+ Drink.랭킹.get(i).getPlaytime()+"\t\t"+ Drink.랭킹.get(i).getContent());
+			 System.out.println((i+1)+"\t"+ Drink.랭킹.get(i).getName()+"\t"+ Drink.랭킹.get(i).getPlaytime()+"\t\t"+ Drink.랭킹.get(i).getContent());
 		 }
 		 System.out.println("---------------------");
 	 }
@@ -263,7 +269,6 @@ public class Controller extends Thread{
 		catch(Exception e){ // catch : 예외 잡기 -> Exception 클래스의 객체에 저장
 		}
 	}
-
-	 
+ 
 }
 	
