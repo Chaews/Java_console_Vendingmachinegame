@@ -16,7 +16,7 @@ public class Buy extends Thread {
 		
 		// 병렬처리 실행
 		try {Thread.sleep(5000);}catch(Exception e) {} // 컴퓨터 구매활동 3초이후 시작
-		while(true) {
+		while(true) { Music 구매 = new Music("구매.mp3",true);
 			if(Drink.경고횟수>=4) {
 				break;
 			}
@@ -34,6 +34,7 @@ public class Buy extends Thread {
 					Drink.콜라 -= buy;
 					Drink.자금 += buy*400 ;
 					Drink.메시지.add(0,"콜라 " + buy + " 개 판매되었습니다. + " + buy*400 + "원");
+					구매.start();
 					if(Drink.메시지.size()>=8) {
 						Drink.메시지.remove(5);
 					}
@@ -54,6 +55,7 @@ public class Buy extends Thread {
 					Drink.환타 -= buy;
 					Drink.자금 += buy*300 ;
 					Drink.메시지.add(0,"환타 " + buy + " 개 판매되었습니다. + " + buy*300 + "원");
+					구매.start();
 					if(Drink.메시지.size()>=8) {
 						Drink.메시지.remove(5);
 					}
@@ -66,6 +68,7 @@ public class Buy extends Thread {
 				if (Drink.사이다 < buy) {
 					Drink.경고횟수 += 1;
 					Drink.메시지.add(0,"경고) 사이다가 부족하여 판매하지 못했습니다");
+					
 					if(Drink.메시지.size()>=8) {
 						Drink.메시지.remove(5);
 					}
@@ -74,6 +77,7 @@ public class Buy extends Thread {
 					Drink.사이다 -= buy;
 					Drink.자금 += buy*200 ;
 					Drink.메시지.add(0,"사이다 " + buy + " 개 판매되었습니다. + " + buy*200 + "원");
+					구매.start();
 					if(Drink.메시지.size()>=8) {
 						Drink.메시지.remove(5);
 					}
@@ -86,6 +90,7 @@ public class Buy extends Thread {
 				if (Drink.레드불 < buy) {
 					Drink.경고횟수 += 1;
 					Drink.메시지.add(0,"경고) 레드불이 부족하여 판매하지 못했습니다");
+					
 					if(Drink.메시지.size()>=8) {
 						Drink.메시지.remove(5);
 					}
@@ -94,6 +99,7 @@ public class Buy extends Thread {
 					Drink.레드불 -= buy;
 					Drink.자금 += buy*1500 ;
 					Drink.메시지.add(0,"레드불 " + buy + " 개 판매되었습니다. + " + buy*1500 + "원");
+					구매.start();
 					if(Drink.메시지.size()>=8) {
 						Drink.메시지.remove(5);
 					}

@@ -78,7 +78,7 @@ public class Btn {
             	statusLabel.setText("자금이 부족하여 구매할 수 없습니다.");
             }
             else {
-	            Drink.콜라++;
+	            Drink.콜라++; 
 	            Drink.자금 -= 300 ;
 	            
             }
@@ -92,7 +92,7 @@ public class Btn {
             	statusLabel.setText("자금이 부족하여 구매할 수 없습니다.");
             }
             else{
-            	Drink.환타++;
+            	Drink.환타++; 
             	Drink.자금 -= 200;
             	
             }
@@ -106,7 +106,7 @@ public class Btn {
             	statusLabel.setText("자금이 부족하여 구매할 수 없습니다.");
             }
             else{
-            	Drink.사이다++;
+            	Drink.사이다++; 
             	Drink.자금 -= 100;
             	
             }
@@ -120,7 +120,7 @@ public class Btn {
             	statusLabel.setText("자금이 부족하여 구매할 수 없습니다.");
             }
             else{
-            	Drink.레드불++;
+            	Drink.레드불++; 
             	Drink.자금 -= 1000;
             	
             }
