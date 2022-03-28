@@ -32,6 +32,7 @@ public class Drink{
 			Rank rank = new Rank(i, " ", 0, " ");
 			랭킹.add(i-1, rank);
 		}
+		Controller.load();
 		
 		while(true) {
 			Controller.시작화면();
@@ -86,7 +87,7 @@ public class Drink{
 		}
 		
 		Controller.랭크출력();
-		
+		Controller.save();
 		
 	
 	

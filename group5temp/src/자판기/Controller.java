@@ -1,5 +1,7 @@
 package 자판기;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.text.DecimalFormat;
 
 public class Controller extends Thread{
@@ -221,6 +223,41 @@ public class Controller extends Thread{
 		 }
 		 System.out.println("---------------------");
 	 }
+	 
+	 public static void save() {
+		 try { // 예외[오류]가 발생할것 같은 코드 묶음 (예상)					// 파일 경로 , 이어쓰기=true[옵션]
+				FileOutputStream fileOutputStream = new FileOutputStream("D:/java/자판기.txt");
+				for(int i = 0 ; i < 5 ; i++) {
+					String 내보내기 = Drink.랭킹.get(i).getRank()+","+Drink.랭킹.get(i).getName()+","+Drink.랭킹.get(i).getPlaytime()+","+Drink.랭킹.get(i).getContent()+"\n";
+					fileOutputStream.write(내보내기.getBytes()); // 문자열 -> 바이트열
+				}
+			}
+			catch(Exception e) { // 예외[오류] 처리[잡기] : Exception 클래스
+			}
+	 }
+	 
+	public static void load() {
+		try {
+			FileInputStream fileInputStream = new FileInputStream("D:/java/자판기.txt");
+			byte[] bytes = new byte[1024]; // bit -> byte -> kb -> mb -> gb
+			fileInputStream.read(bytes);
+			String 파일내용 = new String(bytes); // 바이트열 -> 문자열
+			String[] file = 파일내용.split("\n");	
+			int i = 0 ;
+			for(String temp : file) {
+				String[] 필드목록 = temp.split(",");
+				Rank rank = new Rank(Integer.parseInt(필드목록[0]), 필드목록[1], (long)(Integer.parseInt(필드목록[2])),필드목록[3]);
+				// 리스트 저장
+				Drink.랭킹.remove(i);
+				Drink.랭킹.add(i,rank);
+				i++;
+			}
+			
+		
+		}
+		catch(Exception e){ // catch : 예외 잡기 -> Exception 클래스의 객체에 저장
+		}
+	}
 
 	 
 }
