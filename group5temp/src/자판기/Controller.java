@@ -107,14 +107,9 @@ public class Controller extends Thread{
 			
 		}
 	} // 출력메소드 end
-	public static void 시작화면출력() {
+	public static void 시작카운트() {
 		for(int i = 0 ; i <= 5 ; i++) {
 			cls();
-			System.out.println("┌────────────────────────────┐");
-			System.out.println("│     자판기에 음료수가 모자라서   │");
-			System.out.println("│     판매하지 못하면 경고입니다   │");
-			System.out.println("│         잘 채워주세요!        │");
-			System.out.println("└────────────────────────────┘");
 			if(i==0) {
 				System.out.println();
 				System.out.println();
@@ -191,7 +186,27 @@ public class Controller extends Thread{
 	      System.out.println("   ####  ####      ########     ############   ###     ###");
 	      System.out.println("     ######          ####       ############   ###      ###");
 	   }
+	 public static void 시작화면() {
+			System.out.println("********* 자판기 게임 *********");
+			System.out.println("     자판기에 음료수가 모자라서   ");
+			System.out.println("     판매하지 못하면 경고입니다   ");
+			System.out.println("         잘 채워주세요!        ");
+			System.out.println("*****************************");
+	 }
+	 
+	 public static void 랭크판정() {
+		 
+	 }
+	 
+	 public static void 랭크출력() {
+		 System.out.println("--------순위표--------");
+		 System.out.println("랭킹\t이름\t플레이시간\t\t코멘트");
+		 for(int i = 0 ; i < 5 ; i++) {
+			 System.out.println(Drink.랭킹.get(i).getRank()+"\t"+ Drink.랭킹.get(i).getName()+"\t"+ Drink.랭킹.get(i).getPlaytime()+"\t\t"+ Drink.랭킹.get(i).getContent());
+		 }
+		 System.out.println("---------------------");
+	 }
 
-
+	 
 }
 	
