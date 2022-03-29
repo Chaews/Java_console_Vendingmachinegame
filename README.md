@@ -76,4 +76,7 @@
 ![image](https://user-images.githubusercontent.com/57170517/160520035-c93fa39b-0c16-433c-9e03-6af723e1a9ba.png)
 
 
+프레임 이해
+![캡처11](https://user-images.githubusercontent.com/100546843/160553890-319d6332-74c0-4b73-b0b5-20deaf5a229e.PNG)
+
 
