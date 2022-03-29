@@ -71,7 +71,7 @@
  게임화면
 ![image](https://user-images.githubusercontent.com/57170517/160517746-0945a97f-91aa-496a-b9f6-0eaa42ce3663.png)
 
- 흐름도
+ 흐름도 
  ![image](https://user-images.githubusercontent.com/57170517/160518106-a0e4ed26-4b64-4a1a-8045-8384e4fc9ad1.png)
 
 
