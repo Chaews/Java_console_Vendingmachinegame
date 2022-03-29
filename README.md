@@ -73,6 +73,7 @@
 
  흐름도 
  
- ![image](https://user-images.githubusercontent.com/57170517/160518106-a0e4ed26-4b64-4a1a-8045-8384e4fc9ad1.png)
+![image](https://user-images.githubusercontent.com/57170517/160520035-c93fa39b-0c16-433c-9e03-6af723e1a9ba.png)
+
 
 
