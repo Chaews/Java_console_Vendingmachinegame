@@ -77,6 +77,6 @@
 
 
 프레임 이해
-![캡처11](https://user-images.githubusercontent.com/100546843/160553890-319d6332-74c0-4b73-b0b5-20deaf5a229e.PNG)
+![1](https://user-images.githubusercontent.com/100546843/160554041-639fec00-1e22-4124-99c9-99665a309d19.png)
 
 
