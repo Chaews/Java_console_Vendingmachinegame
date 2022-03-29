@@ -41,14 +41,14 @@ public class Controller extends Thread{
 	 
 	 public static int 랭크판정(long 게임시간) { // 랭크판정메소드
 		 for(int i = 0 ; i < 10 ; i++) {
-			 if(랭킹.get(i).getPlaytime() < 게임시간) { // 랭크 리스트 0~4인덱스 값과 게임시간 비교, 5위안에 들었을 시 인덱스 반환
+			 if(랭킹.get(i).getPlaytime() < 게임시간) { // 랭크 리스트 0~9인덱스 값과 게임시간 비교, 5위안에 들었을 시 인덱스 반환
 				 return i ;
 			 }
 		 }
-		 return 100; // 0~4인덱스 값과 비교했을때 게임시간이 작을때 100 반환(5위 안에 못들었을 시)(꼭 100이 아니어도 됨 그냥 큰숫자넣었음) 
+		 return 100; // 0~4인덱스 값과 비교했을때 게임시간이 작을때 100 반환(10위 안에 못들었을 시)(꼭 100이 아니어도 됨 그냥 큰숫자넣었음) 
 	 }
 	 
-	 public static void 랭크등록(int result, long 게임시간, String 이름, String 코멘트) { // 5위안에 들었을시 매개변수 이름과 코멘트를 받아 랭크 리스트에 저장
+	 public static void 랭크등록(int result, long 게임시간, String 이름, String 코멘트) { // 10위안에 들었을시 매개변수 이름과 코멘트를 받아 랭크 리스트에 저장
 		 Rank rank = new Rank(이름, 게임시간, 코멘트);
 		 랭킹.add(result,rank); // 랭크판정메소드로부터 얻어낸 인덱스 값에 저장
 	 }
