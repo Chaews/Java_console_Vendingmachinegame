@@ -18,7 +18,7 @@ public class Picture {
 			System.out.println("\t\t\t│         화면조정글씨        │");
 			System.out.println("\t\t\t└─────────────────────────┘");
 			System.out.println("\t\t콘솔창을 최대화 해주시고 화면조정글씨 박스가 깨지지 않도록 화면을 확대해주세요");
-			System.out.println();
+			System.out.println(); //콘솔창을 알맞은 사이즈로 조절하도록 하는 장치 
 			System.out.println();
 			
 			System.out.println("\t\t\t********* 자판기 게임 *********");

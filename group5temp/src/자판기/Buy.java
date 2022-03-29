@@ -30,7 +30,7 @@ public class Buy extends Thread {
 					Controller.경고횟수 += 1; // 경고 1회 증가
 					Controller.메시지.add(0,"경고) 콜라가 부족하여 판매하지 못했습니다"); // 경고메시지 메시지 리스트에 저장
 					if(Controller.메시지.size()>=8) { // 리스트에 문자열 과다 저장 방지를 위해 인덱스내 객체 제거(화면출력은 0~4인덱스까지만 나옴)
-						Controller.메시지.remove(5);
+						Controller.메시지.remove(5);//인덱스내 객체를 제거 하지않으면 컴퓨터가 구매 메세제를 실행 할때마다 저장됌 
 					}
 				}
 				else { // 랜덤으로 생성된 구매갯수가 재고보다 많을경우 (구매성공조건일경우)
@@ -39,10 +39,11 @@ public class Buy extends Thread {
 					Controller.메시지.add(0,"콜라 " + buy + " 개 판매되었습니다. + " + buy*400 + "원"); // 차감된 숫자와 금액 메시지 리스트에 저장
 					구매.start(); // 구매 성공음악 재생
 					if(Controller.메시지.size()>=8) { // 리스트에 문자열 과다 저장 방지를 위해 인덱스내 객체 제거(화면출력은 0~4인덱스까지만 나옴)
-						Controller.메시지.remove(5);
+						Controller.메시지.remove(5); //인덱스내 객체를 제거 하지않으면 컴퓨터가 구매 메세제를 실행 할때마다 저장됌 
 					}
 				}
 					try {Thread.sleep(2000-Controller.시간차이*50);}catch(Exception e) {} // 시간차이 변수에 따라 속도조절
+											//int시간차이=5초경과시 1증가
 			}
 			else if(음료이름=="환타") { // 환타 구매 스레드 (콜라와 동일한 구조)
 				Random random = new Random();

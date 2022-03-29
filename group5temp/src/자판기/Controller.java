@@ -55,7 +55,7 @@ public class Controller extends Thread{
 		 	 	 	 
 	 public static void save() { // 랭킹 파일처리 메소드
 		 try {
-				FileOutputStream fileOutputStream = new FileOutputStream("C:/java/자판기.txt");
+				FileOutputStream fileOutputStream = new FileOutputStream("D:/java/자판기.txt");
 				for(int i = 0 ; i < 10 ; i++) {
 					String 내보내기 = 랭킹.get(i).getName()+","+랭킹.get(i).getPlaytime()+","+랭킹.get(i).getContent()+"\n";
 					fileOutputStream.write(내보내기.getBytes()); // 문자열 -> 바이트열
@@ -67,7 +67,7 @@ public class Controller extends Thread{
 	 
 	public static void load() { // 랭킹파일 불러오기 메소드
 		try {
-			FileInputStream fileInputStream = new FileInputStream("C:/java/자판기.txt");
+			FileInputStream fileInputStream = new FileInputStream("D:/java/자판기.txt");
 			byte[] bytes = new byte[1024]; // bit -> byte -> kb -> mb -> gb
 			fileInputStream.read(bytes);
 			String 파일내용 = new String(bytes); // 바이트열 -> 문자열

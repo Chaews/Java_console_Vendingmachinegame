@@ -38,6 +38,7 @@ public class Drink{
 			}			
 			Picture.시작카운트(); // 카운트다운 출력메소드	
 			Controller.시작시간 = System.currentTimeMillis(); // 시작시간 저장
+			//currentTimeMillis 쓴이유  시작시간을 1/1000초 단위로 알려줌  1/10억초 까지 표현해주는 nanoTime은 필요가 없었음
 			TimeCheck timecheck = new TimeCheck(); // 시간 체크 객체 생성
 			Music 배경음악 = new Music("배경음악.mp3",true); // 배경음악재생 객체 생성
 			Buy buy1 = new Buy("콜라"); // 컴퓨터 콜라 구매 객체 생성
