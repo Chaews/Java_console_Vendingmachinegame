@@ -59,7 +59,7 @@ public class Drink{
 			
 			/////////////////////////게임오버////////////////////////////////////////
 			
-			buttons.closeButton();
+			buttons.closeButton(); // 게임오버시 버튼 제거
 			Picture.gameover(); // 게임오버화면 출력 메소드
 			배경음악.close(); // 배경음악 스레드 종료
 			timecheck.setStop(true); // 시간체크 스레드 종료
