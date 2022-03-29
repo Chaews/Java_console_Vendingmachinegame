@@ -7,8 +7,7 @@ public class Drink{
 	
 	public static void main(String[] args) { // 메시지 인덱스에 공백 넣고 추가
 		Scanner scanner = new Scanner(System.in);
-		Btn buttons = new Btn(); // 버튼객체 생성
-	    buttons.showButton(); // 버튼 생성
+
 	    
 		while(true) { // 시작화면 반복문 시작 [종료조건 : 1번선택시]
 			while(true) {
@@ -45,7 +44,9 @@ public class Drink{
 			Buy buy2 = new Buy("환타"); // 컴퓨터 환타 구매 객체 생성
 			Buy buy3 = new Buy("사이다"); // 컴퓨터 사이다 구매 객체 생성
 			Buy buy4 = new Buy("레드불"); // 컴퓨터 레드불 구매 객체 생성
-	
+			
+			Btn buttons = new Btn(); // 버튼객체 생성
+			buttons.showButton(); // 버튼 생성
 			배경음악.start();	// 배경음악재생 스레드 시작 (thread 1)
 			timecheck.start(); // 시간체크 스레드 시작 (thread 2)
 			buy1.start(); // 컴퓨터 콜라 구매 스레드 시작 (thread 3)
@@ -58,7 +59,7 @@ public class Drink{
 			
 			/////////////////////////게임오버////////////////////////////////////////
 			
-	
+			buttons.closeButton();
 			Picture.gameover(); // 게임오버화면 출력 메소드
 			배경음악.close(); // 배경음악 스레드 종료
 			timecheck.setStop(true); // 시간체크 스레드 종료

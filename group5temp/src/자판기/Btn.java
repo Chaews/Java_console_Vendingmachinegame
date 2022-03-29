@@ -25,6 +25,7 @@ public class Btn {
    public static void main(String[] args) {
       Btn buttons = new Btn();
       buttons.showButton();
+      
    }
    
  
@@ -130,5 +131,9 @@ public class Btn {
       mainFrame.setVisible(true);
       mainFrame.setAlwaysOnTop(true); // 항상 위에
  
+   }
+   
+   void closeButton() {
+	   mainFrame.setVisible(false);
    }
 }
