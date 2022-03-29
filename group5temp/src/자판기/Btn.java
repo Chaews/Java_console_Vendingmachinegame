@@ -18,7 +18,8 @@ public class Btn {
    private Panel controlPanel;
  
    public Btn() {
-      prepareGUI();
+      prepareGUI(); //GUI 란 Graphical user interface 의 줆말 
+      				// 지금까지 배운건 command-line text mode로 입력받는것인데 GUI 를써서 마우스 입력을 받을수있다
    }
  
    public static void main(String[] args) {
