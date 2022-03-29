@@ -1,9 +1,14 @@
 package 자판기;
 
+import java.awt.FlowLayout;
+import java.awt.Frame;
+import java.awt.Label;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Drink{
+
+public class Drink extends KeyBoard{
 	
 	public static void main(String[] args) { // 메시지 인덱스에 공백 넣고 추가
 		Scanner scanner = new Scanner(System.in);
@@ -45,6 +50,26 @@ public class Drink{
 			Buy buy3 = new Buy("사이다"); // 컴퓨터 사이다 구매 객체 생성
 			Buy buy4 = new Buy("레드불"); // 컴퓨터 레드불 구매 객체 생성
 			
+			
+
+			
+			
+//			키보드로 음료 채우기
+//			Frame f = new Frame("Demo");
+//			f.setLayout(new FlowLayout());
+//			f.setSize(500, 500);
+//			Label l = new Label();
+//			l.setText("선택중입니다..");
+//			f.add(l);
+//			f.setVisible(true);
+//			f.setLocation(200, 200);
+//			f.setAlwaysOnTop(true); // 항상 위에
+//			// Creating and adding the key listener
+//			KeyBoard k = new KeyBoard();
+//			f.addKeyListener(k);
+////////////////////////////////////////////////
+			
+			
 			Btn buttons = new Btn(); // 버튼객체 생성
 			buttons.showButton(); // 버튼 생성
 			배경음악.start();	// 배경음악재생 스레드 시작 (thread 1)
@@ -54,8 +79,6 @@ public class Drink{
 			buy3.start(); // 컴퓨터 사이다 구매 스레드 시작 (thread 5)
 			buy4.start(); // 컴퓨터 레드불 구매 스레드 시작 (thread 6)
 			Picture.화면출력메소드(); // 화면출력메소드 while 무한루프 (main thread)
-			
-			
 			
 			/////////////////////////게임오버////////////////////////////////////////
 			
