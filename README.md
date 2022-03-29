@@ -68,5 +68,8 @@
 5. Frame Button  //마우스로 입력받음
 6. currenttimemillis() // 시스템 시간 오늘날짜 알아내기위해 객체지정 안해도 시스템에서 바로 시간 알려줌 / 나노타임도 고려했으나 10억단위까지 표현하기 때문에 적합하지않았음
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5a46ea6d-85e2-4394-a8d0-faaed54f6adf/Untitled.png)
+
 ![image](https://user-images.githubusercontent.com/57170517/160517746-0945a97f-91aa-496a-b9f6-0eaa42ce3663.png)
+
+![image](https://user-images.githubusercontent.com/57170517/160517781-3c22522f-2f32-463c-9d3c-b4bc9eca83e6.png)
+
