@@ -1,3 +1,5 @@
+시연 영상 (Youtube 링크) https://youtu.be/LEEon0xGyKU
+
 # 자판기 게임
 ### 게임 소개 <br>
 ### 1. 자판기의 음료가 팔려나간다.<br>
